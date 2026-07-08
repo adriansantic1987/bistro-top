@@ -108,7 +108,7 @@ export default function Footer() {
     }
 
     const encodedText = encodeURIComponent(text);
-    const link = `https://wa.me/38551221445?text=${encodedText}`;
+    const link = `https://wa.me/385994111894?text=${encodedText}`;
     window.open(link, "_blank");
     setIsBooking(false);
   };
@@ -342,7 +342,7 @@ export default function Footer() {
 
               {/* Quiet Luxury Voice Contact Button */}
               <a
-                href="tel:+38551221445"
+                href="tel:+385994111894"
                 className="w-full border border-chocolate-900 dark:border-[#C1682B] text-chocolate-900 dark:text-[#DFB283] hover:bg-chocolate-900 dark:hover:bg-[#C1682B] hover:text-white dark:hover:text-white active:scale-[0.99] font-sans font-semibold py-3.5 px-6 rounded-xl flex items-center justify-center space-x-2.5 shadow-soft hover:shadow-active transition-all duration-300 cursor-pointer text-xs sm:text-sm uppercase tracking-wider"
               >
                 <Phone className="h-4.5 w-4.5 flex-shrink-0" />

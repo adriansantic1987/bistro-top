@@ -6,7 +6,7 @@ import { Phone } from "lucide-react";
 export default function MobileDeliveryFAB() {
   return (
     <motion.a
-      href="tel:+38551221445"
+      href="tel:+385994111894"
       initial={{ opacity: 0, scale: 0.5, y: 50 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ type: "spring", stiffness: 260, damping: 20, delay: 1 }}

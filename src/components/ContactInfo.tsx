@@ -4,7 +4,7 @@ import { Clock, MapPin, Phone, MessageSquare } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function ContactInfo() {
-  const whatsAppLink = "https://wa.me/38551221445?text=Pozdrav!%20%C5%BDelio%20bih%20rezervirati%20stol%20u%20Bistrou%20Top.%20Ime%20i%20prezime%3A%20%2C%20Broj%20ljudi%3A%20%2C%20Datum%20i%20vrijeme%3A%20";
+  const whatsAppLink = "https://wa.me/385994111894?text=Pozdrav!%20%C5%BDelio%20bih%20rezervirati%20stol%20u%20Bistrou%20Top.%20Ime%20i%20prezime%3A%20%2C%20Broj%20ljudi%3A%20%2C%20Datum%20i%20vrijeme%3A%20";
 
   return (
     <section id="contact" className="py-24 bg-ivory-50 px-4 sm:px-6 lg:px-8 border-t border-ivory-200/40">
@@ -79,8 +79,8 @@ export default function ContactInfo() {
                   <h4 className="font-serif text-base font-semibold text-chocolate-900 uppercase">Kontakt za informacije</h4>
                   <div className="mt-0.5 space-y-0.5 text-chocolate-850 font-sans font-light text-sm">
                     <p>
-                      <a href="tel:+38551221445" className="hover:text-sea-600 transition-colors">
-                        +385 51 221 445
+                      <a href="tel:+385994111894" className="hover:text-sea-600 transition-colors">
+                        +385 99 411 1894
                       </a>
                     </p>
                     <p>
@@ -147,7 +147,7 @@ export default function ContactInfo() {
 
                 {/* Call reservation link */}
                 <a
-                  href="tel:+38551221445"
+                  href="tel:+385994111894"
                   className="bg-sea-600 hover:bg-sea-700 active:scale-99 text-white font-sans font-semibold py-4 rounded-xl flex flex-col items-center justify-center space-y-2 shadow-soft hover:shadow-active transition-all duration-300 text-center cursor-pointer p-4 border border-white/10"
                 >
                   <Phone className="h-7 w-7 text-white" />

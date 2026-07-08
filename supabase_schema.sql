@@ -71,3 +71,19 @@ CREATE TABLE IF NOT EXISTS site_settings (
 ALTER TABLE site_settings ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Allow public read access on site_settings" ON site_settings FOR SELECT USING (true);
 
+-- 6. reservations: id, name, guests, date, time, status, created_at
+CREATE TABLE IF NOT EXISTS reservations (
+    id TEXT PRIMARY KEY,
+    name TEXT NOT NULL,
+    guests TEXT NOT NULL,
+    date TEXT NOT NULL,
+    time TEXT NOT NULL,
+    status TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'approved', 'rejected')),
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
+);
+
+-- Enable RLS & Add Public read/insert policies
+ALTER TABLE reservations ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Allow public insert access on reservations" ON reservations FOR INSERT WITH CHECK (true);
+CREATE POLICY "Allow public read access on reservations" ON reservations FOR SELECT USING (true);
+

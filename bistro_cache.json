@@ -1,0 +1,1395 @@
+{
+  "menu_items": [
+    {
+      "id": "pek-1",
+      "category": "peka",
+      "name": "Teletina pod pekom",
+      "description": "Sočna teletina polako pečena 3 sata ispod peke prekrivene žarom, s mladim krumpirima i lukom.",
+      "price": 28,
+      "display_order": 20,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "pek-2",
+      "category": "peka",
+      "name": "Krčka janjetina pod pekom",
+      "description": "Janjetina s krčkih pašnjaka pečena pod pekom s domaćim krumpirom i svježom kaduljom.",
+      "price": 32,
+      "display_order": 21,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "pek-3",
+      "category": "peka",
+      "name": "Hobotnica pod pekom",
+      "description": "Cijela jadranska hobotnica sporo pečena pod pekom s krumpirima, maslinama i bijelim vinom.",
+      "price": 30,
+      "display_order": 22,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "pek-4",
+      "category": "peka",
+      "name": "Domaći pivac pod pekom",
+      "description": "Domaći pijetao pečen pod pekom s krumpirom, mladom mrkvom i ružmarinom.",
+      "price": 22,
+      "display_order": 23,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "pek-5",
+      "category": "peka",
+      "name": "Veprina pod pekom",
+      "description": "Meso divljeg vepra marinirano u vinu i lovorovom listu, pečeno pod pekom sa suhim šljivama.",
+      "price": 29,
+      "display_order": 24,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "pek-6",
+      "category": "peka",
+      "name": "Odojak pod pekom",
+      "description": "Svinjski odojak pečen pod pekom dok kožica ne postane rumena i hrskava, s krumpirima.",
+      "price": 24,
+      "display_order": 25,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "pek-7",
+      "category": "peka",
+      "name": "Miješana peka",
+      "description": "Bogata kombinacija telećeg karea i janjećeg buta sporo pečenih pod pekom s povrćem.",
+      "price": 31,
+      "display_order": 26,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "pek-8",
+      "category": "peka",
+      "name": "Janjeća koljenica pod pekom",
+      "description": "Janjeća koljenica sporo kuhana i pečena pod pekom s korjenastim povrćem i prošekom.",
+      "price": 26,
+      "display_order": 27,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "pek-9",
+      "category": "peka",
+      "name": "Patka pod pekom s jabukama",
+      "description": "Domaća patka sporo pečena pod pekom s kiselkastim jabukama, krumpirima i cimetom.",
+      "price": 25,
+      "display_order": 28,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "pek-10",
+      "category": "peka",
+      "name": "Povrće pod pekom",
+      "description": "Krumpir, mrkva, tikvice, luk, patlidžani i paprika pečeni pod pekom s maslinovim uljem.",
+      "price": 16,
+      "display_order": 29,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "piz-1",
+      "category": "pizze",
+      "name": "Pizza Margherita",
+      "description": "Umak od rajčice, svježa mozzarella, maslinovo ulje i svježi bosiljak.",
+      "price": 9,
+      "display_order": 0,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "piz-2",
+      "category": "pizze",
+      "name": "Pizza Vesuvio",
+      "description": "Umak od rajčice, mozzarella, kuhana šunka i origano.",
+      "price": 10,
+      "display_order": 1,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "piz-3",
+      "category": "pizze",
+      "name": "Pizza Capricciosa",
+      "description": "Umak od rajčice, mozzarella, kuhana šunka, svježi šampinjoni i masline.",
+      "price": 11,
+      "display_order": 2,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "piz-4",
+      "category": "pizze",
+      "name": "Pizza Quattro Formaggi",
+      "description": "Umak od rajčice, mozzarella, gorgonzola, lokalni krčki sir i parmezan.",
+      "price": 12,
+      "display_order": 3,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "piz-5",
+      "category": "pizze",
+      "name": "Pizza Al Tonno",
+      "description": "Umak od rajčice, mozzarella, tunjevina, kapari, crveni luk i maslinovo ulje.",
+      "price": 12,
+      "display_order": 4,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "piz-6",
+      "category": "pizze",
+      "name": "Pizza Picante",
+      "description": "Umak od rajčice, mozzarella, ljuta salama, feferoni, ajvar i crveni luk.",
+      "price": 12,
+      "display_order": 5,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "piz-7",
+      "category": "pizze",
+      "name": "Krčka pizza",
+      "description": "Umak od rajčice, lokalni krčki ovčji sir, domaći pršut, divlje smokve i rikula.",
+      "price": 14,
+      "display_order": 6,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "piz-8",
+      "category": "pizze",
+      "name": "Pizza Rustica",
+      "description": "Umak od rajčice, mozzarella, domaći špek, šampinjoni, kiselo vrhnje i luk.",
+      "price": 12,
+      "display_order": 7,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "piz-9",
+      "category": "pizze",
+      "name": "Pizza Vegetariana",
+      "description": "Umak od rajčice, mozzarella, grillane tikvice, patlidžani, paprika, kukuruz i cherry rajčice.",
+      "price": 11,
+      "display_order": 8,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "piz-10",
+      "category": "pizze",
+      "name": "Bistro Top Special",
+      "description": "Umak od rajčice, mozzarella, trakice junećeg bifteka, krema od tartufa i svježa rikula.",
+      "price": 16,
+      "display_order": 9,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "pre-1",
+      "category": "predjela_deserti",
+      "name": "Krčki pršut i ovčji sir",
+      "description": "Domaći pršut sušen na buri, ovčji sir iz lokalne sirane, masline i smokve.",
+      "price": 15,
+      "display_order": 40,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "pre-2",
+      "category": "predjela_deserti",
+      "name": "Salata od hobotnice",
+      "description": "Kuhani komadi hobotnice s krumpirom, crvenim lukom, peršinom i domaćim uljem.",
+      "price": 16,
+      "display_order": 41,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "pre-3",
+      "category": "predjela_deserti",
+      "name": "Slane srdele s lukom",
+      "description": "Fileti slanih srdela u maslinovom ulju s crvenim lukom na toasted kruhu.",
+      "price": 10,
+      "display_order": 42,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "pre-4",
+      "category": "predjela_deserti",
+      "name": "Krčki presnac",
+      "description": "Tradicionalni kolač od mladog ovčjeg sira, jaja i limunove korice u slatkom tijestu.",
+      "price": 8,
+      "display_order": 43,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "pre-5",
+      "category": "predjela_deserti",
+      "name": "Domaća rožata",
+      "description": "Kremasti karamel custard puding s aromom ružinog likera.",
+      "price": 7,
+      "display_order": 44,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "pre-6",
+      "category": "predjela_deserti",
+      "name": "Domaća štrudla od jabuka",
+      "description": "Topla savijača s kiselim jabukama, cimetom i grožđicama uz umak od vanilije.",
+      "price": 7,
+      "display_order": 45,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "pre-7",
+      "category": "predjela_deserti",
+      "name": "Čokoladni lava kolač",
+      "description": "Topli kolač s tekućim čokoladnim srcem, poslužen s kuglicom sladoleda.",
+      "price": 8,
+      "display_order": 46,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "pre-8",
+      "category": "predjela_deserti",
+      "name": "Palačinke s orasima i medom",
+      "description": "Tople palačinke punjene mljevenim orasima i prelivene domaćim krčkim medom.",
+      "price": 6,
+      "display_order": 47,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "pre-9",
+      "category": "predjela_deserti",
+      "name": "Fritule s cimetom i šećerom",
+      "description": "Domaće pržene fritule posute šećerom u prahu i cimetom.",
+      "price": 6,
+      "display_order": 48,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "pre-10",
+      "category": "predjela_deserti",
+      "name": "Smokve u prošeku",
+      "description": "Krčke smokve kuhane u slatkom prošeku, poslužene tople uz sladoled od vanilije.",
+      "price": 8,
+      "display_order": 49,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "rib-1",
+      "category": "riba",
+      "name": "Orada s gradela",
+      "description": "Svježa cijela orada pečena na roštilju s ružmarinom. Prilog: kuhana blitva i krumpir s češnjakom.",
+      "price": 25,
+      "display_order": 30,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "rib-2",
+      "category": "riba",
+      "name": "Brancin s gradela",
+      "description": "Cijeli brancin s roštilja premazan maslinovim uljem i češnjakom, poslužen s blitvom.",
+      "price": 25,
+      "display_order": 31,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "rib-3",
+      "category": "riba",
+      "name": "Jadranske lignje na žaru",
+      "description": "Cijele jadranske lignje na gradelama, prelivene umakom od peršina, češnjaka i krčkog maslinovog ulja.",
+      "price": 22,
+      "display_order": 32,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "rib-4",
+      "category": "riba",
+      "name": "Pržene lignje s pomfritom",
+      "description": "Hrskavi kolutići prženih lignji posluženi uz pomfrit i krišku limuna s tartar umakom.",
+      "price": 17,
+      "display_order": 33,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "rib-5",
+      "category": "riba",
+      "name": "Crni rižot od sipa",
+      "description": "Kremasti rižot od jadranske sipe s njezinim crnilom, maslinovim uljem i parmezanom.",
+      "price": 18,
+      "display_order": 34,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "rib-6",
+      "category": "riba",
+      "name": "Dagnje na crvenu buzaru",
+      "description": "Svježe dagnje kuhane na buzaru s rajčicom, češnjakom, peršinom i bijelim vinom Žlahtina.",
+      "price": 14,
+      "display_order": 35,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "rib-7",
+      "category": "riba",
+      "name": "Tuna odrezak na žaru",
+      "description": "Debeli odrezak tune s roštilja premazan maslinovim uljem, poslužen na posteljici od rikule.",
+      "price": 23,
+      "display_order": 36,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "rib-8",
+      "category": "riba",
+      "name": "Kvarnerski škampi na buzaru",
+      "description": "Prvoklasni škampi iz Kvarnerskog zaljeva kuhani na bijelu buzaru s maslinovim uljem i češnjakom.",
+      "price": 35,
+      "display_order": 37,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "rib-9",
+      "category": "riba",
+      "name": "Rižot od kozica i tikvica",
+      "description": "Kremasti rižot s jadranskim kozicama, mladim tikvicama i maslinovim uljem.",
+      "price": 18,
+      "display_order": 38,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "rib-10",
+      "category": "riba",
+      "name": "Grdobina u bijelom umaku",
+      "description": "Filet grdobine kuhan u bijelom umaku od češnjaka, vina i vrhnja s kuhanim krumpirom.",
+      "price": 26,
+      "display_order": 39,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "ros-1",
+      "category": "rostilj",
+      "name": "Domaći ćevapčići",
+      "description": "10 ćevapčića od 100% junetine pečenih na drvenom ugljenu, posluženih u vrućem somunu s lukom i ajvarom.",
+      "price": 13,
+      "display_order": 10,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "ros-2",
+      "category": "rostilj",
+      "name": "Pljeskavica s kajmakom",
+      "description": "Velika juneća pljeskavica poslužena u somunu s izdašnim komadom domaćeg kajmaka i crvenim lukom.",
+      "price": 14,
+      "display_order": 11,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "ros-3",
+      "category": "rostilj",
+      "name": "Punjena pljeskavica",
+      "description": "Juneća pljeskavica punjena domaćim sirom i kockicama špeka, pečena na roštilju.",
+      "price": 15,
+      "display_order": 12,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "ros-4",
+      "category": "rostilj",
+      "name": "Miješano meso 'Bistro Top'",
+      "description": "Ugljeni žar klasik: ćevapčići, svinjski ražnjić, marinirani pileći file i domaća kobasica s pomfritom.",
+      "price": 20,
+      "display_order": 13,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "ros-5",
+      "category": "rostilj",
+      "name": "Ražnjići od svinjskog karea",
+      "description": "Svinjski file nanizan na ražnjiće s lukom i paprikom, grillan i poslužen uz pekarski krumpir.",
+      "price": 14,
+      "display_order": 14,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "ros-6",
+      "category": "rostilj",
+      "name": "Teleći kotleti s biljem",
+      "description": "Debeli teleći kotleti pečeni na žaru, preliveni emulzijom maslinovog ulja, ružmarina i češnjaka.",
+      "price": 22,
+      "display_order": 15,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "ros-7",
+      "category": "rostilj",
+      "name": "Ramstek na gradelama",
+      "description": "Odležani juneći ramstek s roštilja s pečenim krumpirom i maslinama.",
+      "price": 25,
+      "display_order": 16,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "ros-8",
+      "category": "rostilj",
+      "name": "Marinirani pileći file",
+      "description": "Pileći file mariniran u lokalnom začinskom bilju i limunu, pečen na žaru i poslužen s tikvicama.",
+      "price": 13,
+      "display_order": 17,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "ros-9",
+      "category": "rostilj",
+      "name": "Domaće krčke kobasice",
+      "description": "Tradicionalne svinjske kobasice rađene na otoku Krku, pečene na roštilju i poslužene s kiselim kupusom.",
+      "price": 14,
+      "display_order": 18,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    },
+    {
+      "id": "ros-10",
+      "category": "rostilj",
+      "name": "Biftek u papru",
+      "description": "Vrhunski juneći biftek s roštilja premazan maslacem i preliven umakom od zelenog papra i konjaka.",
+      "price": 29,
+      "display_order": 19,
+      "active": true,
+      "created_at": "2026-07-07T22:40:09.519411+00:00"
+    }
+  ],
+  "site_content": {
+    "HR": {
+      "navbar": {
+        "home": "Početna",
+        "about": "O nama",
+        "menu": "Jelovnik",
+        "contact": "Kontakt & Rezervacije"
+      },
+      "hero": {
+        "accent": "Otok Krk, Hrvatska • Pizzeria & Grill",
+        "subtitle": "Uživajte u odličnim pizzama, sočnom roštilju i bogatim porcijama na otoku Krku.",
+        "desc": "Svakodnevno za vas pripremamo vrhunske burgere, tople domaće pizze iz krušne peći i jela s otvorenog roštilja na drveni ugljen. Dođite u opuštenu atmosferu i ugasite glad uz izdašne i ukusne obroke.",
+        "ctaMenu": "Pogledaj jelovnik",
+        "ctaBook": "Rezerviraj stol"
+      },
+      "about": {
+        "tagline": "Kvalitetna hrana & opušten ambijent",
+        "title": "Dobrodošli u Bistro Top",
+        "desc": "Smješten u samom srcu otoka Krka, **Bistro Top** nudi vrhunska, svježe pripremljena jela. Naša jednostavna filozofija donosi obilne i ukusne porcije u kojima uživa cijela obitelj.",
+        "feature1_title": "Žar drvenog ugljena",
+        "feature1_desc": "Sočni burgeri i klasični ćevapčići pečeni na pravom žaru.",
+        "feature2_title": "Pizze iz krušne peći",
+        "feature2_desc": "Bogate, hrskave pizze iz krušne peći s puno rastopljenog sira.",
+        "bottom_text": "Bilo da dolazite na brzi ručak nakon plaže, večeru s prijateljima ili obiteljsko druženje, naš jelovnik nudi bogat izbor pizza, mesnih jela s roštilja, burgera i svježih salata. Ovdje nitko ne ostaje gladan!",
+        "reviews_tagline": "Dojmovi gostiju",
+        "reviews_title": "Što kažu naši gosti",
+        "google_score": "Google ocjena: 4.5+ / 5"
+      },
+      "menu": {
+        "tagline": "Domaći recepti & svježi sastojci",
+        "title": "Naš jelovnik",
+        "subtitle": "Istražite bogatu ponudu autohtonih otočkih i jadranskih specijaliteta, pripremljenih s ljubavlju.",
+        "banner_subtitle": "Domaći ugođaj i tradicionalna krčka kuhinja",
+        "allergy_note": "* Molimo da o mogućim alergijama obavijestite naše osoblje prije naručivanja. Sve cijene su izražene u eurima i uključuju PDV.",
+        "categories": {
+          "pizze": "Pizze",
+          "rostilj": "Jela s roštilja",
+          "peka": "Jela pod pekom",
+          "riba": "Riba & Plodovi mora",
+          "predjela_deserti": "Predjela & Deserti"
+        }
+      },
+      "footer": {
+        "contact_tagline": "Kontakt & Lokacija",
+        "visit_us": "Posjetite nas",
+        "address_title": "Adresa",
+        "address_value": "Vela Placa 3, 51500 Krk, Hrvatska",
+        "hours_title": "Radno vrijeme (Ljeto)",
+        "hours_weekdays": "Pon - Sub: 12:00 - 23:00",
+        "hours_sunday": "Nedjelja: 12:00 - 22:00",
+        "logo_desc": "Pizzeria & Grill • Otok Krk, Hrvatska",
+        "copyright": "Bistro Top Krk. Sva prava pridržana."
+      },
+      "action_box": {
+        "reserve_title": "Rezervacija Stola",
+        "reserve_subtitle": "Osigurajte svoje mjesto na vrijeme. Unesite svoje podatke ispod kako biste pokrenuli brzu rezervaciju stola putem WhatsApp poruke.",
+        "name_placeholder": "Vaše Ime i Prezime",
+        "guests_placeholder": "Broj osoba",
+        "date_placeholder": "Datum",
+        "time_placeholder": "Vrijeme",
+        "reserve_btn": "Rezerviraj stol (WhatsApp)",
+        "order_title": "Narudžba Hrane & Dostava",
+        "order_subtitle": "Ako želite naručiti dostavu hrane na kućnu adresu ili radije preferirate brzu telefonsku rezervaciju stola uživo, kontaktirajte nas direktno.",
+        "contact_btn": "Kontaktiraj nas",
+        "whatsapp_template": "Pozdrav! Želio bih rezervirati stol u Bistrou Top. Ime i prezime: {name}, Broj ljudi: {guests}, Datum: {date}, Vrijeme: {time}"
+      }
+    },
+    "EN": {
+      "navbar": {
+        "home": "Home",
+        "about": "About Us",
+        "menu": "Menu",
+        "contact": "Contact & Booking"
+      },
+      "hero": {
+        "accent": "Krk Island, Croatia • Pizzeria & Grill",
+        "subtitle": "Enjoy excellent pizzas, juicy grills and hearty portions on Krk island.",
+        "desc": "Every day we prepare premium burgers, hot homemade pizzas from the wood-fired oven and dishes from the open charcoal grill. Come to a relaxed atmosphere and satisfy your hunger with generous and delicious meals.",
+        "ctaMenu": "View Menu",
+        "ctaBook": "Book a Table"
+      },
+      "about": {
+        "tagline": "Quality food & relaxed atmosphere",
+        "title": "Welcome to Bistro Top",
+        "desc": "Located in the heart of Krk island, **Bistro Top** offers simple, freshly prepared dishes. Our philosophy is to serve generous, delicious portions that the whole family can enjoy.",
+        "feature1_title": "Charcoal Grill",
+        "feature1_desc": "Juicy burgers and classic specialties grilled over real charcoal.",
+        "feature2_title": "Wood-Fired Pizza",
+        "feature2_desc": "Crispy wood-fired pizzas loaded with homemade sauce and melted cheese.",
+        "bottom_text": "Whether you come for a quick lunch after the beach, dinner with friends or a family gathering, our menu offers a rich selection of pizzas, grilled meats, burgers and fresh salads. Nobody goes home hungry!",
+        "reviews_tagline": "Guest Reviews",
+        "reviews_title": "What our guests say",
+        "google_score": "Google Rating: 4.5+ / 5"
+      },
+      "menu": {
+        "tagline": "Homemade recipes & fresh ingredients",
+        "title": "Our Menu",
+        "subtitle": "Explore the rich offer of authentic island and Adriatic specialties, prepared with love.",
+        "banner_subtitle": "Cozy ambient and traditional Krk cuisine",
+        "allergy_note": "* Please inform our staff of any possible allergies before ordering. All prices are in EUR and include VAT.",
+        "categories": {
+          "pizze": "Pizzas",
+          "rostilj": "Charcoal Grills",
+          "peka": "Dishes under Peka",
+          "riba": "Fish & Seafood",
+          "predjela_deserti": "Starters & Desserts"
+        },
+        "item": {
+          "piz-1": {
+            "name": "Pizza Margherita",
+            "description": "Tomato sauce, fresh mozzarella, olive oil and fresh basil."
+          },
+          "piz-2": {
+            "name": "Pizza Vesuvio",
+            "description": "Tomato sauce, mozzarella, ham and oregano."
+          },
+          "piz-3": {
+            "name": "Pizza Capricciosa",
+            "description": "Tomato sauce, mozzarella, ham, fresh mushrooms and olives."
+          },
+          "piz-4": {
+            "name": "Pizza Quattro Formaggi",
+            "description": "Tomato sauce, mozzarella, gorgonzola, local Krk cheese and parmesan."
+          },
+          "piz-5": {
+            "name": "Pizza Al Tonno",
+            "description": "Tomato sauce, mozzarella, tuna, capers, red onion and olive oil."
+          },
+          "piz-6": {
+            "name": "Pizza Picante",
+            "description": "Tomato sauce, mozzarella, spicy salami, hot peppers, ajvar and red onion."
+          },
+          "piz-7": {
+            "name": "Krk Pizza",
+            "description": "Tomato sauce, local Krk sheep cheese, prosciutto, wild figs and arugula."
+          },
+          "piz-8": {
+            "name": "Pizza Rustica",
+            "description": "Tomato sauce, mozzarella, bacon, mushrooms, sour cream and onions."
+          },
+          "piz-9": {
+            "name": "Pizza Vegetariana",
+            "description": "Tomato sauce, mozzarella, grilled zucchini, eggplant, peppers, corn and cherry tomatoes."
+          },
+          "piz-10": {
+            "name": "Bistro Top Special",
+            "description": "Tomato sauce, mozzarella, beef tenderloin strips, truffle cream and fresh arugula."
+          },
+          "ros-1": {
+            "name": "Homemade Ćevapčići",
+            "description": "10 pieces of 100% beef grilled on charcoal, served in hot somun flatbread with onions and ajvar."
+          },
+          "ros-2": {
+            "name": "Pljeskavica with Kajmak",
+            "description": "Large beef patty served in somun flatbread with a generous dollop of homemade kajmak cream and onions."
+          },
+          "ros-3": {
+            "name": "Stuffed Pljeskavica",
+            "description": "Beef patty stuffed with local cheese and bacon bits, grilled over charcoal."
+          },
+          "ros-4": {
+            "name": "Mixed Meat 'Bistro Top'",
+            "description": "Charcoal classics: ćevapčići, pork skewer, marinated chicken fillet and local sausage served with french fries."
+          },
+          "ros-5": {
+            "name": "Pork Loin Skewers",
+            "description": "Pork loin threaded onto skewers with onions and peppers, grilled and served with baked potatoes."
+          },
+          "ros-6": {
+            "name": "Veal Chops with Herbs",
+            "description": "Thick grilled veal chops drizzled with olive oil, fresh rosemary and garlic emulsion."
+          },
+          "ros-7": {
+            "name": "Grilled Rump Steak",
+            "description": "Aged beef rump steak grilled on charcoal, served with baked potatoes and olives."
+          },
+          "ros-8": {
+            "name": "Marinated Chicken Fillet",
+            "description": "Chicken fillet marinated in local herbs and lemon, grilled on charcoal, served with zucchini."
+          },
+          "ros-9": {
+            "name": "Homemade Krk Sausages",
+            "description": "Traditional pork sausages made on Krk island, grilled and served with sauerkraut."
+          },
+          "ros-10": {
+            "name": "Pepper Steak",
+            "description": "Premium beef tenderloin grilled, brushed with butter and topped with green peppercorn and cognac sauce."
+          },
+          "pek-1": {
+            "name": "Veal under Peka",
+            "description": "Tender veal slow-roasted for 3 hours under a iron bell covered with embers, served with baby potatoes and onions."
+          },
+          "pek-2": {
+            "name": "Krk Lamb under Peka",
+            "description": "Local pasture-raised lamb roasted under peka with domestic potatoes and fresh sage leaves."
+          },
+          "pek-3": {
+            "name": "Octopus under Peka",
+            "description": "Whole Adriatic octopus slow-baked under peka with potatoes, black olives and white wine."
+          },
+          "pek-4": {
+            "name": "Domestic Rooster under Peka",
+            "description": "Free-range rooster baked under the iron bell with potatoes, baby carrots and fresh rosemary."
+          },
+          "pek-5": {
+            "name": "Wild Boar under Peka",
+            "description": "Wild boar meat marinated in red wine and bay leaves, slow-baked under peka with dried plums."
+          },
+          "pek-6": {
+            "name": "Suckling Pig under Peka",
+            "description": "Suckling pork pig slow-roasted under peka until skin is golden and crispy, served with potatoes."
+          },
+          "pek-7": {
+            "name": "Mixed Peka Platter",
+            "description": "Hearty combination of veal loin and lamb leg slow-roasted under the iron bell with seasonal vegetables."
+          },
+          "pek-8": {
+            "name": "Lamb Shank under Peka",
+            "description": "Lamb shank slow-cooked and roasted under peka with root vegetables and sweet prošek wine."
+          },
+          "pek-9": {
+            "name": "Duck under Peka with Apples",
+            "description": "Domestic duck slow-roasted under peka with tart apples, potatoes and a touch of cinnamon."
+          },
+          "pek-10": {
+            "name": "Vegetables under Peka",
+            "description": "Potatoes, carrots, zucchini, onions, eggplants and peppers baked under the iron bell with olive oil."
+          },
+          "rib-1": {
+            "name": "Grilled Sea Bream",
+            "description": "Fresh whole sea bream grilled with rosemary. Served with boiled Swiss chard and garlic potatoes."
+          },
+          "rib-2": {
+            "name": "Grilled Sea Bass",
+            "description": "Whole sea bass grilled on charcoal, brushed with olive oil and garlic, served with chard."
+          },
+          "rib-3": {
+            "name": "Grilled Adriatic Squid",
+            "description": "Whole Adriatic squid grilled, drizzled with parsley, garlic and local Krk olive oil."
+          },
+          "rib-4": {
+            "name": "Fried Squid with Fries",
+            "description": "Crispy fried squid rings served with golden french fries, lemon wedge and tartar sauce."
+          },
+          "rib-5": {
+            "name": "Black Cuttlefish Risotto",
+            "description": "Creamy risotto made with local cuttlefish, its ink, olive oil and grated parmesan."
+          },
+          "rib-6": {
+            "name": "Mussels in Tomato Buzara",
+            "description": "Fresh local mussels cooked in tomato, garlic, parsley and Žlahtina local white wine sauce."
+          },
+          "rib-7": {
+            "name": "Grilled Tuna Steak",
+            "description": "Thick fresh tuna steak grilled on charcoal, brushed with olive oil, served on arugula bed."
+          },
+          "rib-8": {
+            "name": "Kvarner Scampi Buzara",
+            "description": "First-class scampi from the Kvarner bay cooked in white buzara sauce with olive oil and garlic."
+          },
+          "rib-9": {
+            "name": "Prawn and Zucchini Risotto",
+            "description": "Krk prawn tails cooked with baby zucchini in a creamy olive oil risotto base."
+          },
+          "rib-10": {
+            "name": "Monkfish in White Sauce",
+            "description": "Monkfish fillets simmered in white garlic, wine and cream sauce, served with potatoes."
+          },
+          "pre-1": {
+            "name": "Krk Prosciutto and Sheep Cheese",
+            "description": "Local air-dried prosciutto, local sheep cheese from Krk farm, olives and figs."
+          },
+          "pre-2": {
+            "name": "Octopus Salad",
+            "description": "Tender boiled octopus pieces tossed with potatoes, red onions, parsley and olive oil."
+          },
+          "pre-3": {
+            "name": "Salted Sardines with Onion",
+            "description": "Salted sardine fillets in olive oil topped with red onions on toasted crusty bread."
+          },
+          "pre-4": {
+            "name": "Krk Presnac Cake",
+            "description": "Traditional local pastry filled with young sheep cheese, eggs and lemon zest."
+          },
+          "pre-5": {
+            "name": "Homemade Rožata",
+            "description": "Creamy caramel custard pudding flavored with traditional rose liqueur."
+          },
+          "pre-6": {
+            "name": "Homemade Apple Strudel",
+            "description": "Warm strudel pastry filled with tart apples, cinnamon and raisins, served with vanilla sauce."
+          },
+          "pre-7": {
+            "name": "Chocolate Lava Cake",
+            "description": "Warm chocolate cake with a melting hot chocolate core, served with a scoop of ice cream."
+          },
+          "pre-8": {
+            "name": "Crepes with Walnuts and Honey",
+            "description": "Warm crepes stuffed with ground walnuts and drizzled with raw local Krk honey."
+          },
+          "pre-9": {
+            "name": "Fritule with Cinnamon and Sugar",
+            "description": "Homemade fried local fritter balls dusted with powdered sugar and cinnamon."
+          },
+          "pre-10": {
+            "name": "Figs in Prošek Wine",
+            "description": "Local Krk figs cooked in sweet prošek wine, served warm with vanilla ice cream."
+          }
+        }
+      },
+      "footer": {
+        "contact_tagline": "Contact & Location",
+        "visit_us": "Visit Us",
+        "address_title": "Address",
+        "address_value": "Vela Placa 3, 51500 Krk, Croatia",
+        "hours_title": "Opening Hours (Summer)",
+        "hours_weekdays": "Mon - Sat: 12:00 - 23:00",
+        "hours_sunday": "Sunday: 12:00 - 22:00",
+        "logo_desc": "Pizzeria & Grill • Krk Island, Croatia",
+        "copyright": "Bistro Top Krk. All rights reserved."
+      },
+      "action_box": {
+        "reserve_title": "Table Reservation",
+        "reserve_subtitle": "Secure your spot in time. Enter your details below to initiate a quick table reservation via WhatsApp message.",
+        "name_placeholder": "Your First and Last Name",
+        "guests_placeholder": "Number of guests",
+        "date_placeholder": "Date",
+        "time_placeholder": "Time",
+        "reserve_btn": "Reserve table (WhatsApp)",
+        "order_title": "Food Order & Delivery",
+        "order_subtitle": "If you want to order food delivery to your home address or prefer a quick phone reservation live, contact us directly.",
+        "contact_btn": "Contact Us",
+        "whatsapp_template": "Hello! I would like to reserve a table at Bistro Top. Name: {name}, People: {guests}, Date: {date}, Time: {time}"
+      }
+    },
+    "IT": {
+      "navbar": {
+        "home": "Inizio",
+        "about": "Chi Siamo",
+        "menu": "Menu",
+        "contact": "Contatti"
+      },
+      "hero": {
+        "accent": "Isola di Krk, Croazia • Pizzeria & Grill",
+        "subtitle": "Gusta ottime pizze, grigliate succulente e porzioni abbondanti sull'isola di Krk.",
+        "desc": "Ogni giorno prepariamo hamburger di prima qualità, calde pizze fatte in casa dal forno a legna e piatti dalla griglia a carbone aperta. Vieni in un'atmosfera rilassata e soddisfa la tua fame con pasti abbondanti e deliziosi.",
+        "ctaMenu": "Vedi il menu",
+        "ctaBook": "Prenota un tavolo"
+      },
+      "about": {
+        "tagline": "Cibo di qualità e atmosfera rilassata",
+        "title": "Benvenuti al Bistro Top",
+        "desc": "Situato nel cuore dell'isola di Krk, il **Bistro Top** offre piatti semplici e preparati al momento. La nostra filosofia è servire porzioni abbondanti e gustose per tutta la famiglia.",
+        "feature1_title": "Griglia a carbone",
+        "feature1_desc": "Hamburger succulenti e ćevapčići cotti su vera griglia a carbone.",
+        "feature2_title": "Pizze dal forno a legna",
+        "feature2_desc": "Pizze croccanti con salsa fatta in casa e tanto formaggio fuso.",
+        "bottom_text": "Che veniate per un pranzo veloce dopo la spiaggia, una cena tra amici o una riunione di famiglia, il nostro menu offre un'ampia scelta di pizze, carne alla griglia, hamburger e insalate fresche. Qui nessuno resta affamato!",
+        "reviews_tagline": "Recensioni dei clienti",
+        "reviews_title": "Cosa dicono i nostri ospiti",
+        "google_score": "Punteggio Google: 4.5+ / 5"
+      },
+      "menu": {
+        "tagline": "Ricette fatte in casa e ingredienti freschi",
+        "title": "Il nostro menu",
+        "subtitle": "Esplora la ricca offerta di specialità dell'isola e dell'Adriatico, preparate con amore.",
+        "banner_subtitle": "Ambiente accogliente e cucina tradicional di Veglia",
+        "allergy_note": "* Si prega di informare il nostro staff di eventuali allergie prima di ordinare. Tutti i prezzi sono in euro e comprensivi di IVA.",
+        "categories": {
+          "pizze": "Pizze",
+          "rostilj": "Grigliate",
+          "peka": "Sotto la peka",
+          "riba": "Pesce e frutti di mare",
+          "predjela_deserti": "Antipasti e dolci"
+        },
+        "item": {
+          "piz-1": {
+            "name": "Pizza Margherita",
+            "description": "Salsa di pomodoro, mozzarella fresca, olio d'oliva e basilico fresco."
+          },
+          "piz-2": {
+            "name": "Pizza Vesuvio",
+            "description": "Salsa di pomodoro, mozzarella, prosciutto cotto e origano."
+          },
+          "piz-3": {
+            "name": "Pizza Capricciosa",
+            "description": "Salsa di pomodoro, mozzarella, prosciutto cotto, funghi freschi e olive."
+          },
+          "piz-4": {
+            "name": "Pizza Quattro Formaggi",
+            "description": "Salsa di pomodoro, mozzarella, gorgonzola, formaggio locale di Veglia e parmigiano."
+          },
+          "piz-5": {
+            "name": "Pizza Al Tonno",
+            "description": "Salsa di pomodoro, mozzarella, tonno, capperi, cipolla rossa e olio d'oliva."
+          },
+          "piz-6": {
+            "name": "Pizza Picante",
+            "description": "Salsa di pomodoro, mozzarella, salame piccante, peperoncini, ajvar e cipolla rossa."
+          },
+          "piz-7": {
+            "name": "Pizza di Veglia",
+            "description": "Salsa di pomodoro, formaggio pecorino locale di Veglia, prosciutto crudo, fichi selvatici e rucola."
+          },
+          "piz-8": {
+            "name": "Pizza Rustica",
+            "description": "Salsa di pomodoro, mozzarella, pancetta locale, funghi, panna acida e cipolla."
+          },
+          "piz-9": {
+            "name": "Pizza Vegetariana",
+            "description": "Salsa di pomodoro, mozzarella, zucchine grigliate, melanzane, peperoni, mais e pomodorini."
+          },
+          "piz-10": {
+            "name": "Bistro Top Special",
+            "description": "Salsa di pomodoro, mozzarella, straccetti di filetto di manzo, crema di tartufo e rucola fresca."
+          },
+          "ros-1": {
+            "name": "Ćevapčići della Casa",
+            "description": "10 pezzi di ćevapčići di manzo al 100% cotti sulla brace, serviti in un caldo panino somun con cipolla e ajvar."
+          },
+          "ros-2": {
+            "name": "Pljeskavica con Kajmak",
+            "description": "Grande polpetta di manzo servita nel panino somun con una generosa cucchiaiata di kajmak fatto in casa e cipolla rossa."
+          },
+          "ros-3": {
+            "name": "Pljeskavica Ripiena",
+            "description": "Polpetta di manzo ripiena di formaggio locale e pancetta a cubetti, cotta alla griglia."
+          },
+          "ros-4": {
+            "name": "Grigliata Mista 'Bistro Top'",
+            "description": "Grigliata classica: ćevapčići, spiedino di maiale, filetto di pollo marinato e salsiccia locale con patatine fritte."
+          },
+          "ros-5": {
+            "name": "Spiedini di Lonza di Maiale",
+            "description": "Filetto di maiale infilzato su spiedini con cipolla e peperoni, grigliato e servito con patate al forno."
+          },
+          "ros-6": {
+            "name": "Costolette di Vitello alle Erbe",
+            "description": "Spesse costolette di vitello grigliate, condite con un'emulsione di olio d'oliva, rosmarino e aglio."
+          },
+          "ros-7": {
+            "name": "Costata di Manzo alla Griglia",
+            "description": "Costata di manzo frollata alla griglia, servita con patate al forno e olive."
+          },
+          "ros-8": {
+            "name": "Filetto di Pollo Marinato",
+            "description": "Filetto di pollo marinato alle erbe locali e limone, grigliato e servito con zucchine."
+          },
+          "ros-9": {
+            "name": "Salsicce di Veglia Fatte in Casa",
+            "description": "Salsicce di maiale tradizionali di Veglia, grigliate e servite con crauti."
+          },
+          "ros-10": {
+            "name": "Filetto al Pepe Verde",
+            "description": "Filetto di manzo di prima scelta alla griglia spennellato al burro, con salsa al pepe verde e cognac."
+          },
+          "pek-1": {
+            "name": "Vitello sotto la Peka",
+            "description": "Tenero vitello cotto lentamente per 3 ore sotto la campana di ferro coperta di brace, con patate novelle e cipolla."
+          },
+          "pek-2": {
+            "name": "Agnello di Veglia sotto la Peka",
+            "description": "Agnello locale allevato al pascolo cotto sotto la campana con patate nostrane e salvia fresca."
+          },
+          "pek-3": {
+            "name": "Polpo sotto la Peka",
+            "description": "Polpo intero dell'Adriatico cotto lentamente sotto la campana con patate, olive nere e vino bianco."
+          },
+          "pek-4": {
+            "name": "Gallo Nostrano sotto la Peka",
+            "description": "Gallo ruspante cotto lentamente sotto la campana di ferro con patate, carotine e rosmarino freschi."
+          },
+          "pek-5": {
+            "name": "Cinghiale sotto la Peka",
+            "description": "Carne di cinghiale marinata in vino rosso e alloro, cotta sotto la campana con prugne secche."
+          },
+          "pek-6": {
+            "name": "Maialino da Latte sotto la Peka",
+            "description": "Maialino da latte cotto sotto la campana fino a doratura della cotenna croccante, servito con patate."
+          },
+          "pek-7": {
+            "name": "Peka Mista di Carne",
+            "description": "Ricca combinazione di lonza di vitello e cosciotto d'agnello cotti sotto la campana con verdure di stagione."
+          },
+          "pek-8": {
+            "name": "Stinco d'Agnello sotto la Peka",
+            "description": "Stinco d'agnello cotto lentamente sotto la campana con ortaggi a radice e vino dolce prošek."
+          },
+          "pek-9": {
+            "name": "Anatra sotto la Peka con Mele",
+            "description": "Anatra nostrana cotta sotto la campana con mele aspre, patate e un pizzico di cannella."
+          },
+          "pek-10": {
+            "name": "Verdure sotto la Peka",
+            "description": "Patate, carote, zucchine, cipolle, melanzane e peperoni cotti sotto la campana con olio d'oliva."
+          },
+          "rib-1": {
+            "name": "Orata alla Griglia",
+            "description": "Orata fresca intera grigliata al rosmarino. Servita con bietola bollita e patate al prezzemolo."
+          },
+          "rib-2": {
+            "name": "Spigola alla Griglia",
+            "description": "Spigola intera alla griglia condita con olio d'oliva e aglio, servita con bietole."
+          },
+          "rib-3": {
+            "name": "Calamari dell'Adriatico alla Griglia",
+            "description": "Calamari interi dell'Adriatico cotti alla griglia, conditi con prezzemolo, aglio e olio di Veglia."
+          },
+          "rib-4": {
+            "name": "Calamari Fritti con Patatine",
+            "description": "Anelli di calamari fritti croccanti serviti con patatine fritte, limone e salsa tartara."
+          },
+          "rib-5": {
+            "name": "Risotto Nero di Seppia",
+            "description": "Cremoso risotto preparato con seppie locali, il loro nero, olio d'oliva e parmigiano."
+          },
+          "rib-6": {
+            "name": "Cozze alla Buzara Rossa",
+            "description": "Cozze fresche cotte alla buzara con pomodoro, aglio, prezzemolo e vino bianco locale Žlahtina."
+          },
+          "rib-7": {
+            "name": "Trancio di Tonno alla Griglia",
+            "description": "Fetta spessa di tonno fresco alla griglia spennellata d'olio, servita su letto di rucola."
+          },
+          "rib-8": {
+            "name": "Scampi del Quarnaro alla Buzara",
+            "description": "Scampi di prima scelta del Quarnaro cotti in buzara in bianco con olio d'oliva e aglio."
+          },
+          "rib-9": {
+            "name": "Risotto con Gamberetti e Zucchine",
+            "description": "Code di gamberetti di Veglia cotte con zucchine novelle in un cremoso risotto all'olio."
+          },
+          "rib-10": {
+            "name": "Rana Pescatrice in Salsa Bianca",
+            "description": "Filetto di rana pescatrice cotto in salsa bianca all'aglio, vino e panna con patate bollite."
+          },
+          "pre-1": {
+            "name": "Prosciutto di Veglia e Pecorino",
+            "description": "Prosciutto crudo locale essiccato alla bora, formaggio pecorino locale, olive e fichi."
+          },
+          "pre-2": {
+            "name": "Insalata di Polpo",
+            "description": "Teneri pezzetti di polpo bollito conditi con patate, cipolla rossa, prezzemolo e olio locale."
+          },
+          "pre-3": {
+            "name": "Sarde Salate con Cipolla",
+            "description": "Filetti di sarde salate in olio d'oliva conditi con cipolle rosse su pane tostato croccante."
+          },
+          "pre-4": {
+            "name": "Torta Presnac di Veglia",
+            "description": "Dolce tradizionale a base di formaggio pecorino fresco, uova e scorza di limone."
+          },
+          "pre-5": {
+            "name": "Rožata della Casa",
+            "description": "Cremoso budino al caramello aromatizzato con liquore tradizionale alla rosa."
+          },
+          "pre-6": {
+            "name": "Strudel di Mele della Casa",
+            "description": "Strudel caldo ripieno di mele aspre, cannella e uvetta, servito con salsa alla vaniglia."
+          },
+          "pre-7": {
+            "name": "Tortino al Cioccolato dal Cuore Caldo",
+            "description": "Tortino tiepido al cioccolato dal cuore liquido, servito con una pallina di gelato."
+          },
+          "pre-8": {
+            "name": "Crespelle con Noci e Miele",
+            "description": "Crespelle calde ripiene di noci tritate e condite con miele grezzo locale di Veglia."
+          },
+          "pre-9": {
+            "name": "Fritole con Cannella e Zucchero",
+            "description": "Fritole tradizionali calde spolverate con zucchero a velo e cannella."
+          },
+          "pre-10": {
+            "name": "Fichi cotti nel Prošek",
+            "description": "Fichi locali di Veglia cotti nel vino dolce prošek, serviti caldi con gelato alla vaniglia."
+          }
+        }
+      },
+      "footer": {
+        "contact_tagline": "Contatti & Posizione",
+        "visit_us": "Vieni a trovarci",
+        "address_title": "Indirizzo",
+        "address_value": "Vela Placa 3, 51500 Krk, Croazia",
+        "hours_title": "Orari di apertura (Estate)",
+        "hours_weekdays": "Lun - Sab: 12:00 - 23:00",
+        "hours_sunday": "Domenica: 12:00 - 22:00",
+        "logo_desc": "Pizzeria & Grill • Isola di Krk, Croazia",
+        "copyright": "Bistro Top Krk. Tutti i diritti riservati."
+      },
+      "action_box": {
+        "reserve_title": "Prenotazione Tavolo",
+        "reserve_subtitle": "Assicurati il tuo posto in tempo. Inserisci i tuoi dati qui sotto per avviare una prenotazione rapida del tavolo tramite messaggio WhatsApp.",
+        "name_placeholder": "Il tuo Nome e Cognome",
+        "guests_placeholder": "Numero di persone",
+        "date_placeholder": "Data",
+        "time_placeholder": "Ora",
+        "reserve_btn": "Prenota tavolo (WhatsApp)",
+        "order_title": "Ordinazione Cibo & Consegna",
+        "order_subtitle": "Se desideri ordinare la consegna di cibo a casa o preferisci una prenotazione telefonica rapida dal vivo, contattaci direttamente.",
+        "contact_btn": "Contattaci",
+        "whatsapp_template": "Ciao! Vorrei prenotare un tavolo al Bistro Top. Nome: {name}, Persone: {guests}, Data: {date}, Ora: {time}"
+      }
+    },
+    "DE": {
+      "navbar": {
+        "home": "Start",
+        "about": "Über Uns",
+        "menu": "Speisekarte",
+        "contact": "Kontakt & Reservierung"
+      },
+      "hero": {
+        "accent": "Insel Krk, Kroatien • Pizzeria & Grill",
+        "subtitle": "Genießen Sie hervorragende Pizzen, saftige Grillgerichte und reichliche Portionen auf der Insel Krk.",
+        "desc": "Jeden Tag bereiten wir erstklassige Burger, heiße hausgemachte Pizzen aus dem Holzofen und Gerichte vom offenen Holzkohlegrill zu. Kommen Sie in eine entspannte Atmosphäre und stillen Sie Ihren Hunger mit reichlichen und leckeren Mahlzeiten.",
+        "ctaMenu": "Speisekarte ansehen",
+        "ctaBook": "Tisch reservieren"
+      },
+      "about": {
+        "tagline": "Qualitätsessen & entspannte Atmosphäre",
+        "title": "Willkommen im Bistro Top",
+        "desc": "Im Herzen der Insel Krk bietet das **Bistro Top** einfache, frisch zubereitete Speisen. Unsere Philosophie ist es, reichliche und leckere Portionen für die ganze Familie zu servieren.",
+        "feature1_title": "Holzkohlegrill",
+        "feature1_desc": "Saftige Burger und klassische Ćevapčići vom echten Holzkohlegrill.",
+        "feature2_title": "Pizza aus dem Holzofen",
+        "feature2_desc": "Knusprige Holzofenpizzen mit hausgemachter Tomatensauce und viel geschmolzenem Käse.",
+        "bottom_text": "Ob Sie zu einem schnellen Mittagessen nach dem Strand, einem Abendessen mit Freunden oder einem Familientreffen kommen, unsere Speisekarte bietet eine reichhaltige Auswahl an Pizzen, Grillgerichten, Bürgern und frischen Salaten. Wir kommen auf jeden Fall wieder! Hier bleibt niemand hungrig!",
+        "reviews_tagline": "Gästebewertungen",
+        "reviews_title": "Was unsere Gäste sagen",
+        "google_score": "Google-Bewertung: 4.5+ / 5"
+      },
+      "menu": {
+        "tagline": "Hausgemachte Rezepte & frische Zutaten",
+        "title": "Speisekarte",
+        "subtitle": "Entdecken Sie die reichhaltige Auswahl an authentischen Spezialitäten der Insel und der Adria, mit Liebe zubereitet.",
+        "banner_subtitle": "Gemütliches Ambiente und traditionelle Krk-Küche",
+        "allergy_note": "* Bitte informieren Sie unser Personal vor der Bestellung über eventuelle Allergien. Alle Preise sind in Euro angegeben und enthalten die gesetzliche MwSt.",
+        "categories": {
+          "pizze": "Pizzas",
+          "rostilj": "Grillgerichte",
+          "peka": "Gerichte unter Peka",
+          "riba": "Fisch & Meeresfrüchte",
+          "predjela_deserti": "Vorspeisen & Desserts"
+        },
+        "item": {
+          "piz-1": {
+            "name": "Pizza Margherita",
+            "description": "Tomatensauce, frischer Mozzarella, Olivenöl und frisches Basilikum."
+          },
+          "piz-2": {
+            "name": "Pizza Vesuvio",
+            "description": "Tomatensauce, Mozzarella, gekochter Schinken und Oregano."
+          },
+          "piz-3": {
+            "name": "Pizza Capricciosa",
+            "description": "Tomatensauce, Mozzarella, gekochter Schinken, frische Champignons und Oliven."
+          },
+          "piz-4": {
+            "name": "Pizza Quattro Formaggi",
+            "description": "Tomatensauce, Mozzarella, Gorgonzola, lokaler Krk-Käse und Parmesan."
+          },
+          "piz-5": {
+            "name": "Pizza Al Tonno",
+            "description": "Tomatensauce, Mozzarella, Thunfisch, Kapern, rote Zwiebeln und Olivenöl."
+          },
+          "piz-6": {
+            "name": "Pizza Picante",
+            "description": "Tomatensauce, Mozzarella, scharfe Salami, Peperoni, Ajvar und rote Zwiebeln."
+          },
+          "piz-7": {
+            "name": "Pizza Krk",
+            "description": "Tomatensauce, lokaler Krk-Schafskäse, hausgemachter Prosciutto, wilde Feigen und Rucola."
+          },
+          "piz-8": {
+            "name": "Pizza Rustica",
+            "description": "Tomatensauce, Mozzarella, hausgemachter Speck, Champignons, Sauerrahm und Zwiebeln."
+          },
+          "piz-9": {
+            "name": "Vegetarische Pizza",
+            "description": "Tomatensauce, Mozzarella, gegrillte Zucchini, Auberginen, Paprika, Mais und Kirschtomaten."
+          },
+          "piz-10": {
+            "name": "Bistro Top Spezial",
+            "description": "Tomatensauce, Mozzarella, Rinderfiletstreifen, Trüffelcreme und frischer Rucola."
+          },
+          "ros-1": {
+            "name": "Hausgemachte Ćevapčići",
+            "description": "10 Ćevapčići aus 100% Rindfleisch auf Holzkohle gegrillt, serviert in heißem Somun-Fladenbrot mit Zwiebeln und Ajvar."
+          },
+          "ros-2": {
+            "name": "Pljeskavica mit Kajmak",
+            "description": "Großes Rindfleisch-Pljeskavica serviert in Somun-Fladenbrot mit einem großzügigen Stück hausgemachtem Kajmak und roten Zwiebeln."
+          },
+          "ros-3": {
+            "name": "Gefüllte Pljeskavica",
+            "description": "Rinder-Pljeskavica gefüllt mit hausgemachtem Käse und Speckwürfeln, vom Grill."
+          },
+          "ros-4": {
+            "name": "Grillteller 'Bistro Top'",
+            "description": "Holzkohle-Klassiker: Ćevapčići, Schweinespieß, mariniertes Hähnchenfilet und hausgemachte Wurst mit Pommes."
+          },
+          "ros-5": {
+            "name": "Schweinerücken-Spieße",
+            "description": "Schweinefilet am Spieß mit Zwiebeln und Paprika, gegrillt, serviert mit Ofenkartoffeln."
+          },
+          "ros-6": {
+            "name": "Kalbskoteletts mit Kräutern",
+            "description": "Dicke Kalbskoteletts vom Grill, beträufelt mit Olivenöl, Rosmarin und Knoblauch."
+          },
+          "ros-7": {
+            "name": "Rumpsteak vom Rost",
+            "description": "Abgehangenes Rinderrumpsteak vom Grill mit Ofenkartoffeln und Oliven."
+          },
+          "ros-8": {
+            "name": "Mariniertes Hähnchenfilet",
+            "description": "Hähnchenfilet mariniert in Kräutern und Zitrone, vom Grill, serviert mit Zucchini."
+          },
+          "ros-9": {
+            "name": "Hausgemachte Krk-Würste",
+            "description": "Traditionelle Schweinswürste von der Insel Krk, vom Grill, serviert mit Sauerkraut."
+          },
+          "ros-10": {
+            "name": "Pfeffersteak",
+            "description": "Premium-Rinderfilet vom Grill, mit Butter bestrichen, serviert an einer grünen Pfeffersauce mit Kognak."
+          },
+          "pek-1": {
+            "name": "Kalbfleisch unter der Peka",
+            "description": "Zartes Kalbfleisch, 3 Stunden langsam unter einer mit Glut bedeckten Peka-Glocke geschmort, mit jungen Kartoffeln und Zwiebeln."
+          },
+          "pek-2": {
+            "name": "Krk-Lamm unter der Peka",
+            "description": "Lammfleisch von Krk-Weiden unter der Peka gebacken mit Kartoffeln und frischem Salbei."
+          },
+          "pek-3": {
+            "name": "Krake unter der Peka",
+            "description": "Ganze adriatische Krake unter der Peka geschmort mit Kartoffeln, Oliven und Weißwein."
+          },
+          "pek-4": {
+            "name": "Hausgemachter Hahn unter der Peka",
+            "description": "Hausgemachter Hahn unter der Peka gebacken mit Kartoffeln, jungen Karotten und Rosmarin."
+          },
+          "pek-5": {
+            "name": "Wildschwein unter der Peka",
+            "description": "Wildschweinfleisch mariniert in Wein und Lorbeerblatt, unter der Peka geschmort mit getrockneten Pflaumen."
+          },
+          "pek-6": {
+            "name": "Spanferkel unter der Peka",
+            "description": "Spanferkel unter der Peka geschmort, bis die Haut goldbraun und knusprig ist, mit Kartoffeln."
+          },
+          "pek-7": {
+            "name": "Gemischtes Peka-Gericht",
+            "description": "Kombination aus Kalbsrücken und Lammkeule, langsam unter der Peka gegart mit Gemüse."
+          },
+          "pek-8": {
+            "name": "Lammschulter unter der Peka",
+            "description": "Lammhaxe langsam unter der Peka gegart mit Wurzelgemüse und Prošek-Süßwein."
+          },
+          "pek-9": {
+            "name": "Ente unter der Peka mit Äpfeln",
+            "description": "Hausente langsam unter der Peka geschmort mit sauren Äpfeln, Kartoffeln und Zimt."
+          },
+          "pek-10": {
+            "name": "Gemüse unter der Peka",
+            "description": "Kartoffeln, Karotten, Zucchini, Zwiebeln, Auberginen und Paprika unter der Peka geschmort mit Olivenöl."
+          },
+          "rib-1": {
+            "name": "Goldbrasse vom Rost",
+            "description": "Frische ganze Goldbrasse vom Grill mit Rosmarin. Beilage: Mangold und Salzkartoffeln mit Knoblauch."
+          },
+          "rib-2": {
+            "name": "Wolfsbarsch vom Rost",
+            "description": "Ganzes Wolfsbarsch vom Grill, mit Olivenöl und Knoblauch bestrichen, serviert mit Mangold."
+          },
+          "rib-3": {
+            "name": "Gegrillter adriatischer Tintenfisch",
+            "description": "Ganze adriatische Tintenfische vom Rost, beträufelt mit Knoblauch-Petersilien-Umak und Olivenöl."
+          },
+          "rib-4": {
+            "name": "Frittierter Tintenfisch mit Pommes",
+            "description": "Knusprig frittierte Tintenfischringe serviert mit Pommes frites, Zitrone und Remoulade."
+          },
+          "rib-5": {
+            "name": "Schwarzes Tintenfisch-Risotto",
+            "description": "Cremiges Risotto vom Tintenfisch mit Tinte, Olivenöl und Parmesan."
+          },
+          "rib-6": {
+            "name": "Miesmuscheln in Tomaten-Buzara",
+            "description": "Frische Miesmuscheln gedünstet in Sauce aus Tomaten, Knoblauch, Petersilie und Žlahtina-Weißwein."
+          },
+          "rib-7": {
+            "name": "Thunfischsteak vom Grill",
+            "description": "Dicke frische Thunfischtranche vom Grill mit Olivenöl, serviert auf einem Rucolabett."
+          },
+          "rib-8": {
+            "name": "Kvarner Kaisergranat auf Buzara-Art",
+            "description": "Erstklassige Kaisergranaten (Scampi) aus der Kvarner Bucht gedünstet in weißer Buzarasauce."
+          },
+          "rib-9": {
+            "name": "Garnelen-Zucchini-Risotto",
+            "description": "Cremiges Risotto mit adriatischen Garnelen, jungen Zucchini und Olivenöl."
+          },
+          "rib-10": {
+            "name": "Seeteufel in weißer Sauce",
+            "description": "Seeteufelfilet gedünstet in weißer Sauce aus Knoblauch, Wein und Sahne mit Salzkartoffeln."
+          },
+          "pre-1": {
+            "name": "Krk-Schinken und Schafskäse",
+            "description": "Hausgemachter Schinken luftgetrocknet, Schafskäse aus lokaler Käserei, Oliven und Feigen."
+          },
+          "pre-2": {
+            "name": "Kraken-Salat",
+            "description": "Zart gekochte Krakenstücke mit Kartoffeln, roten Zwiebeln, Petersilie und nativem Olivenöl."
+          },
+          "pre-3": {
+            "name": "Salzige Sardinen mit Zwiebeln",
+            "description": "Gesalzene Sardinenfilets in Olivenöl mit roten Zwiebeln auf geröstetem Brot."
+          },
+          "pre-4": {
+            "name": "Krčki Presnac Kuchen",
+            "description": "Traditioneller Kuchen aus jungem Schafskäse, Eiern und Zitronenschale in süßem Teig."
+          },
+          "pre-5": {
+            "name": "Hausgemachte Rožata",
+            "description": "Cremiger Karamellpudding verfeinert mit traditionellem Rosenlikör."
+          },
+          "pre-6": {
+            "name": "Hausgemachter Apfelstrudel",
+            "description": "Warmer Strudel mit sauren Äpfeln, Zimt und Rosinen, serviert mit Vanillesauce."
+          },
+          "pre-7": {
+            "name": "Schoko-Lava-Kuchen",
+            "description": "Warmer Kuchen mit flüssigem Schokoladenkern, serviert mit einer Kugel Eiscreme."
+          },
+          "pre-8": {
+            "name": "Pfannkuchen mit Walnüssen und Honig",
+            "description": "Warme Pfannkuchen gefüllt mit gemahlenen Walnüssen und beträufelt mit lokalem Krk-Honig."
+          },
+          "pre-9": {
+            "name": "Krapfen mit Zimt und Zucker",
+            "description": "Hausgemachte frittierte Fritule-Bällchen, bestreut mit Puderzucker und Zimt."
+          },
+          "pre-10": {
+            "name": "Feigen in Prošek-Süßwein",
+            "description": "Krk-Feigen gedünstet in süßem Prošek-Wein, warm serviert mit Vanilleeis."
+          }
+        }
+      },
+      "footer": {
+        "contact_tagline": "Kontakt & Lage",
+        "visit_us": "Besuchen Sie uns",
+        "address_title": "Adresse",
+        "address_value": "Vela Placa 3, 51500 Krk, Kroatien",
+        "hours_title": "Öffnungszeiten (Sommer)",
+        "hours_weekdays": "Mon - Sam: 12:00 - 23:00",
+        "hours_sunday": "Sonntag: 12:00 - 22:00",
+        "logo_desc": "Pizzeria & Grill • Insel Krk, Kroatien",
+        "copyright": "Bistro Top Krk. Alle Rechte vorbehalten."
+      },
+      "action_box": {
+        "reserve_title": "Tischreservierung",
+        "reserve_subtitle": "Sichern Sie sich rechtzeitig Ihren Platz. Geben Sie unten Ihre Daten ein, um eine schnelle Tischreservierung per WhatsApp-Nachricht zu starten.",
+        "name_placeholder": "Ihr Vor- und Nachname",
+        "guests_placeholder": "Anzahl der Personen",
+        "date_placeholder": "Datum",
+        "time_placeholder": "Uhrzeit",
+        "reserve_btn": "Tisch reservieren (WhatsApp)",
+        "order_title": "Essensbestellung & Lieferung",
+        "order_subtitle": "Wenn Sie eine Essenslieferung nach Hause bestellen möchten oder eine schnelle telefonische Tischreservierung bevorzugen, kontaktieren Sie uns direkt.",
+        "contact_btn": "Kontaktieren Sie uns",
+        "whatsapp_template": "Hallo! Ich möchte einen Tisch im Bistro Top reservieren. Name: {name}, Personen: {guests}, Datum: {date}, Uhrzeit: {time}"
+      }
+    }
+  },
+  "opening_hours": [
+    {
+      "id": 1,
+      "day_group": "Pon - Sub",
+      "open_time": "12:00",
+      "close_time": "23:00",
+      "season_label": "Ljeto",
+      "created_at": "2026-07-07T22:40:09.88468+00:00"
+    },
+    {
+      "id": 2,
+      "day_group": "Nedjelja",
+      "open_time": "12:00",
+      "close_time": "22:00",
+      "season_label": "Ljeto",
+      "created_at": "2026-07-07T22:40:09.88468+00:00"
+    }
+  ],
+  "timestamp": 1783530485258
+}

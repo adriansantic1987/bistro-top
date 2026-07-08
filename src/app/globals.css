@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-serif), ui-serif, Georgia, serif;
+  
+  /* Premium Mediterranean (Ivory, Chocolate, Sea Blue) Palette */
+  --color-ivory-50: #fdfbf7;
+  --color-ivory-100: #f7f4eb;
+  --color-ivory-200: #eae5d8;
+  --color-ivory-300: #dbd3be;
+  
+  --color-chocolate-50: #faf8f5;
+  --color-chocolate-100: #f3ece4;
+  --color-chocolate-700: #5f4538;
+  --color-chocolate-800: #4e3629;
+  --color-chocolate-850: #423023;
+  --color-chocolate-900: #3d2a1c;
+  
+  --color-sea-50: #f1f6fb;
+  --color-sea-100: #e2edf7;
+  --color-sea-200: #c5dbef;
+  --color-sea-600: #3870a3; /* Mediterranean Sea Blue */
+  --color-sea-700: #2a5782;
+  --color-sea-800: #1c3b5c;
+}
+
+/* Custom Scrollbar for Ivory Theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fdfbf7;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #1A1512;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #eae5d8;
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #423023;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #dbd3be;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #5f4538;
+}
+
+/* Scroll margin helper for anchor scrolls */
+html {
+  scroll-padding-top: 80px;
+  background-color: #fdfbf7;
+  color: #3d2a1c;
+}
+
+html.dark {
+  background-color: #1A1512;
+  color: #f7f4eb;
+}
+
+/* Custom fade-in micro-animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Soft shadows for premium feel */
+.shadow-soft {
+  box-shadow: 0 10px 30px -10px rgba(61, 42, 28, 0.05);
+}
+.shadow-premium {
+  box-shadow: 0 20px 40px -15px rgba(61, 42, 28, 0.07);
+}
+.shadow-active {
+  box-shadow: 0 4px 12px -2px rgba(56, 112, 163, 0.15);
+}

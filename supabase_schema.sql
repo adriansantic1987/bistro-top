@@ -57,3 +57,17 @@ CREATE POLICY "Allow public read access on site_content" ON site_content FOR SEL
 CREATE POLICY "Allow public read access on opening_hours" ON opening_hours FOR SELECT USING (true);
 CREATE POLICY "Allow public read access on page_views" ON page_views FOR SELECT USING (true);
 -- Write access is restricted to service role / authenticated admin client requests (which bypasses RLS).
+
+-- 5. site_settings: id, vacation_start, vacation_end
+CREATE TABLE IF NOT EXISTS site_settings (
+    id INTEGER PRIMARY KEY DEFAULT 1,
+    vacation_start DATE,
+    vacation_end DATE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
+    CONSTRAINT one_row CHECK (id = 1)
+);
+
+-- Enable RLS & Add Public read policy
+ALTER TABLE site_settings ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Allow public read access on site_settings" ON site_settings FOR SELECT USING (true);
+

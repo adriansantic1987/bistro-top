@@ -140,10 +140,32 @@ async function fetchDirectFromSupabase() {
     
   if (hoursError) throw hoursError;
 
+  // 4. Fetch site_settings (with try-catch for error resilience)
+  let dbSettings = { vacation_start: null, vacation_end: null };
+  try {
+    const { data: settingsData, error: settingsError } = await withTimeout(
+      Promise.resolve(
+        supabase
+          .from("site_settings")
+          .select("*")
+          .eq("id", 1)
+          .maybeSingle()
+      )
+    );
+    if (!settingsError && settingsData) {
+      dbSettings = settingsData;
+    } else if (settingsError) {
+      console.warn("[Cache Settings] Settings query failed:", settingsError.message);
+    }
+  } catch (err) {
+    console.warn("[Cache Settings] Supabase settings fetch failed (possibly table does not exist):", err);
+  }
+
   return {
     menu_items: dbMenuItems && dbMenuItems.length > 0 ? dbMenuItems : FALLBACK_MENU_ITEMS,
     site_content: dbSiteContent && dbSiteContent.length > 0 ? parseSiteContent(dbSiteContent) : FALLBACK_SITE_CONTENT,
     opening_hours: dbHours && dbHours.length > 0 ? dbHours : FALLBACK_OPENING_HOURS,
+    site_settings: dbSettings,
     timestamp: Date.now()
   };
 }
@@ -170,6 +192,7 @@ export const getBistroData = unstable_cache(
         menu_items: FALLBACK_MENU_ITEMS,
         site_content: FALLBACK_SITE_CONTENT,
         opening_hours: FALLBACK_OPENING_HOURS,
+        site_settings: { vacation_start: null, vacation_end: null },
         timestamp: Date.now()
       };
     }

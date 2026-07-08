@@ -199,3 +199,30 @@ export async function updateSiteContent(key: string, language: string, value: st
   updateTag("bistro-data");
   return { success: true };
 }
+
+export async function updateVacationSettings(
+  vacationStart: string | null,
+  vacationEnd: string | null
+) {
+  await checkAuth();
+
+  try {
+    const { error } = await supabaseAdmin
+      .from("site_settings")
+      .upsert({
+        id: 1,
+        vacation_start: vacationStart || null,
+        vacation_end: vacationEnd || null
+      }, { onConflict: "id" });
+
+    if (error) throw error;
+  } catch (err: any) {
+    console.error("[Action updateVacationSettings] Error upserting settings:", err);
+    throw new Error(
+      "Nije moguće spremiti postavke godišnjeg odmora. Molimo provjerite je li tablica 'site_settings' stvorena u Supabase bazi."
+    );
+  }
+
+  updateTag("bistro-data");
+  return { success: true };
+}

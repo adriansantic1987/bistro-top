@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { CATEGORIES } from "@/data/menuData";
 import MenuItem from "./MenuItem";
 import { useLanguage } from "@/context/LanguageContext";
-import { supabase } from "@/utils/supabase";
+import useSWR from "swr";
 
 const CATEGORY_BANNERS: Record<string, string> = {
   pizze: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=85",
@@ -19,33 +19,18 @@ const CATEGORY_BANNERS: Record<string, string> = {
 export default function MenuSection() {
   const { dict, menuItems: fallbackItems } = useLanguage();
   const [activeCategory, setActiveCategory] = useState<string>("pizze");
-  const [menuItems, setMenuItems] = useState<any[]>([]);
 
-  useEffect(() => {
-    async function fetchLiveMenuItems() {
-      try {
-        console.log("[MenuSection] Fetching live menu items from Supabase...");
-        const { data, error } = await supabase
-          .from("menu_items")
-          .select("*")
-          .eq("active", true)
-          .order("display_order", { ascending: true });
+  const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-        if (error) throw error;
-        if (data) {
-          setMenuItems(data);
-        }
-      } catch (err) {
-        console.error("[MenuSection] Failed to fetch menu items from Supabase:", err);
-        // Fallback to static items
-        setMenuItems(fallbackItems.filter((item: any) => item.active));
-      }
-    }
-    fetchLiveMenuItems();
-  }, [fallbackItems]);
+  const { data: rawMenuItems } = useSWR("/api/menu_items", fetcher, {
+    fallbackData: fallbackItems,
+    revalidateOnFocus: false
+  });
+
+  const menuItems = Array.isArray(rawMenuItems) ? rawMenuItems : fallbackItems;
 
   const filteredItems = menuItems.filter(
-    (item: any) => item.category === activeCategory
+    (item: any) => item.category === activeCategory && item.active
   );
 
   return (

@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Flame, Pizza, Calendar, Leaf, Star } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import useSWR from "swr";
 
 interface TranslatedReview {
   author_name: string;
@@ -198,50 +199,23 @@ export default function AboutUs() {
     }
   ];
 
-  const [isUsingLive, setIsUsingLive] = useState(false);
-  const [reviewsData, setReviewsData] = useState<TranslatedReview[] | null>(null);
-  const [liveRating, setLiveRating] = useState<number | null>(null);
+  const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
+  const { data: rawReviewsData } = useSWR("/api/reviews", fetcher, {
+    fallbackData: { rating: 4.8, reviews: backupReviews },
+    revalidateOnFocus: false
+  });
+
+  const reviewsToRender = rawReviewsData?.reviews && Array.isArray(rawReviewsData.reviews) && rawReviewsData.reviews.length > 0
+    ? (rawReviewsData.reviews as TranslatedReview[])
+    : backupReviews;
+
+  const liveRating = rawReviewsData?.rating ?? null;
 
   // Monitor active language changes and log them for diagnostics
   useEffect(() => {
     console.log(`[AboutUs] Active site language changed: ${language}`);
   }, [language]);
-
-  useEffect(() => {
-    async function fetchLiveReviews() {
-      try {
-        console.log("[AboutUs] Loading translations dataset from /api/reviews...");
-        const res = await fetch("/api/reviews");
-        if (!res.ok) {
-          console.warn(`[AboutUs] /api/reviews returned non-ok status: ${res.status}. Falling back to local reviews.`);
-          setIsUsingLive(false);
-          setReviewsData(null);
-          return;
-        }
-        const data = await res.json();
-        
-        if (data && data.reviews && Array.isArray(data.reviews) && data.reviews.length > 0) {
-          setReviewsData(data.reviews as TranslatedReview[]);
-          setIsUsingLive(true);
-        } else {
-          setIsUsingLive(false);
-          setReviewsData(null);
-        }
-        if (data && data.rating) {
-          setLiveRating(data.rating as number);
-        }
-      } catch (err: any) {
-        console.error("Failed to load live Google reviews. Displaying high-quality backup reviews instead.", err.message || err);
-        setIsUsingLive(false);
-        setReviewsData(null);
-      }
-    }
-    fetchLiveReviews();
-  }, []);
-
-  const reviewsToRender = isUsingLive && reviewsData && reviewsData.length > 0
-    ? reviewsData
-    : backupReviews;
 
   const statsTranslations = {
     hr: {

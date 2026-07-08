@@ -3,6 +3,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import { supabase } from "@/utils/supabase";
 import { FALLBACK_SITE_CONTENT } from "@/utils/fallbackData";
+import useSWR from "swr";
 
 export type Language = "hr" | "en" | "it" | "de";
 
@@ -80,6 +81,8 @@ interface LanguageContextProps {
   menuItems: any[];
   openingHours: any[];
   translateMenuItem: (item: { id: string; name: string; description: string }) => { name: string; description: string };
+  vacationStart: string | null;
+  vacationEnd: string | null;
 }
 
 const LanguageContext = createContext<LanguageContextProps | undefined>(undefined);
@@ -88,12 +91,14 @@ export function LanguageProvider({
   children,
   initialSiteContent,
   initialMenuItems,
-  initialOpeningHours
+  initialOpeningHours,
+  initialSettings
 }: {
   children: ReactNode;
   initialSiteContent: Record<string, any>;
   initialMenuItems: any[];
   initialOpeningHours: any[];
+  initialSettings?: { vacation_start: string | null; vacation_end: string | null };
 }) {
   const [language, setLanguage] = useState<Language>("hr");
 
@@ -103,53 +108,64 @@ export function LanguageProvider({
     return content as TranslationDictionary;
   });
 
+  // Fetch site content dynamically via SWR to silently update translations and settings in background
+  const fetcher = (url: string) => fetch(url).then((res) => res.json());
+  const { data: liveData } = useSWR("/api/site_content", fetcher, {
+    fallbackData: {
+      siteContent: [],
+      settings: initialSettings || { vacation_start: null, vacation_end: null }
+    },
+    revalidateOnFocus: false
+  });
+
+  const settings = liveData?.settings || initialSettings || { vacation_start: null, vacation_end: null };
+  const vacationStart = settings.vacation_start;
+  const vacationEnd = settings.vacation_end;
+
+  // Reactively rebuild translation dictionary when language or liveData updates
   useEffect(() => {
-    async function loadTranslations() {
-      try {
-        console.log(`[LanguageContext] Querying Supabase for language: "${language}"...`);
-        const { data, error } = await supabase
-          .from("site_content")
-          .select("*")
-          .eq("language", language);
+    const baseKey = language.toUpperCase() as keyof typeof FALLBACK_SITE_CONTENT;
+    let baseDict = JSON.parse(JSON.stringify(FALLBACK_SITE_CONTENT[baseKey] || FALLBACK_SITE_CONTENT.HR));
 
-        if (error) throw error;
-
-        if (data && data.length > 0) {
-          // Deep clone the fallback dictionary for the current language
-          const baseKey = language.toUpperCase() as keyof typeof FALLBACK_SITE_CONTENT;
-          const baseDict = JSON.parse(JSON.stringify(FALLBACK_SITE_CONTENT[baseKey] || FALLBACK_SITE_CONTENT.HR));
-
-          // Map flat keys from the database to the nested dictionary
-          data.forEach((row) => {
-            const parts = row.key.split(".");
-            let current = baseDict;
-            for (let i = 0; i < parts.length; i++) {
-              const part = parts[i];
-              if (i === parts.length - 1) {
-                current[part] = row.value;
-              } else {
-                if (!current[part]) current[part] = {};
-                current[part] = { ...current[part] };
-                current = current[part];
-              }
-            }
-          });
-
-          setDict(baseDict as TranslationDictionary);
-        } else {
-          // If no rows, fall back to local fallback data
-          const baseKey = language.toUpperCase() as keyof typeof FALLBACK_SITE_CONTENT;
-          setDict((FALLBACK_SITE_CONTENT[baseKey] || FALLBACK_SITE_CONTENT.HR) as TranslationDictionary);
+    // 1. Merge in server-side cached values if available
+    const serverLangContent = initialSiteContent[language.toUpperCase()] || initialSiteContent[language];
+    if (serverLangContent) {
+      const mergeDeep = (target: any, source: any) => {
+        for (const key in source) {
+          if (source[key] && typeof source[key] === "object" && !Array.isArray(source[key])) {
+            if (!target[key]) target[key] = {};
+            mergeDeep(target[key], source[key]);
+          } else {
+            target[key] = source[key];
+          }
         }
-      } catch (err) {
-        console.error(`[LanguageContext] Failed to fetch site_content for "${language}":`, err);
-        const baseKey = language.toUpperCase() as keyof typeof FALLBACK_SITE_CONTENT;
-        setDict((FALLBACK_SITE_CONTENT[baseKey] || FALLBACK_SITE_CONTENT.HR) as TranslationDictionary);
-      }
+      };
+      mergeDeep(baseDict, serverLangContent);
     }
 
-    loadTranslations();
-  }, [language]);
+    // 2. Override with fresh SWR database values
+    if (liveData?.siteContent && Array.isArray(liveData.siteContent)) {
+      const langRows = liveData.siteContent.filter(
+        (row: any) => row.language.toLowerCase() === language.toLowerCase()
+      );
+      langRows.forEach((row: any) => {
+        const parts = row.key.split(".");
+        let current = baseDict;
+        for (let i = 0; i < parts.length; i++) {
+          const part = parts[i];
+          if (i === parts.length - 1) {
+            current[part] = row.value;
+          } else {
+            if (!current[part]) current[part] = {};
+            current[part] = { ...current[part] };
+            current = current[part];
+          }
+        }
+      });
+    }
+
+    setDict(baseDict as TranslationDictionary);
+  }, [language, liveData, initialSiteContent]);
 
   const translateMenuItem = (item: { id: string; name: string; description: string }) => {
     if (language === "hr") {
@@ -178,7 +194,9 @@ export function LanguageProvider({
         dict,
         menuItems: initialMenuItems,
         openingHours: initialOpeningHours,
-        translateMenuItem
+        translateMenuItem,
+        vacationStart,
+        vacationEnd
       }}
     >
       {children}

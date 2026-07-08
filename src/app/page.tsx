@@ -4,10 +4,14 @@ import AboutUs from "@/components/AboutUs";
 import MenuSection from "@/components/Menu/MenuSection";
 import Footer from "@/components/Footer";
 import AnalyticsTracker from "@/components/AnalyticsTracker";
+import VacationModal from "@/components/VacationModal";
 
 export default function Home() {
   return (
     <>
+      {/* Automated Vacation Notice Overlay */}
+      <VacationModal />
+
       {/* Dynamic analytics view logger */}
       <AnalyticsTracker />
 

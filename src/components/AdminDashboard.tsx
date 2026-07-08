@@ -8,7 +8,8 @@ import {
   deleteMenuItem, 
   reorderMenuItem,
   updateOpeningHours,
-  updateSiteContent
+  updateSiteContent,
+  updateVacationSettings
 } from "@/app/admin/actions";
 import { 
   LogOut, 
@@ -25,13 +26,16 @@ import {
   X,
   PlusCircle,
   Eye,
-  EyeOff
+  EyeOff,
+  Settings as SettingsIcon
 } from "lucide-react";
 
 interface AdminDashboardProps {
   initialMenuItems: any[];
   initialHours: any[];
   initialSiteContent: any[];
+  initialVacationStart?: string | null;
+  initialVacationEnd?: string | null;
   analytics: {
     totalViews: Record<string, number>;
     viewsByDay: Record<string, Record<string, number>>;
@@ -43,14 +47,18 @@ export default function AdminDashboard({
   initialMenuItems,
   initialHours,
   initialSiteContent,
+  initialVacationStart,
+  initialVacationEnd,
   analytics
 }: AdminDashboardProps) {
-  const [activeTab, setActiveTab] = useState<"menu" | "hours" | "text" | "analytics">("menu");
+  const [activeTab, setActiveTab] = useState<"menu" | "hours" | "text" | "analytics" | "settings">("menu");
   
   // States
   const [menuItems, setMenuItems] = useState(initialMenuItems);
   const [hours, setHours] = useState(initialHours);
   const [siteContent, setSiteContent] = useState(initialSiteContent);
+  const [vacationStart, setVacationStart] = useState(initialVacationStart || "");
+  const [vacationEnd, setVacationEnd] = useState(initialVacationEnd || "");
 
   // Notifications
   const [msg, setMsg] = useState("");
@@ -89,36 +97,45 @@ export default function AdminDashboard({
       return;
     }
 
-    try {
-      const priceNum = parseFloat(newItem.price);
-      if (isNaN(priceNum)) {
-        triggerMsg("Cijena mora biti broj", "error");
-        return;
-      }
+    const priceNum = parseFloat(newItem.price);
+    if (isNaN(priceNum)) {
+      triggerMsg("Cijena mora biti broj", "error");
+      return;
+    }
 
+    // Save previous state for rollback
+    const previousMenuItems = [...menuItems];
+
+    // Optimistic Update: Append the item immediately
+    const nextOrder = menuItems.filter(i => i.category === newItem.category).length;
+    const newItemObj = {
+      id: newItem.id,
+      category: newItem.category,
+      name: newItem.name,
+      description: newItem.description,
+      price: priceNum,
+      display_order: nextOrder,
+      active: true
+    };
+
+    setMenuItems([...menuItems, newItemObj]);
+    const originalNewItemInput = { ...newItem };
+    // Clear inputs immediately
+    setNewItem({ id: "", name: "", description: "", price: "", category: selectedCategory });
+    triggerMsg("Jelo uspješno dodano!");
+
+    try {
       await createMenuItem({
-        id: newItem.id,
-        category: newItem.category,
-        name: newItem.name,
-        description: newItem.description,
+        id: originalNewItemInput.id,
+        category: originalNewItemInput.category,
+        name: originalNewItemInput.name,
+        description: originalNewItemInput.description,
         price: priceNum
       });
-
-      // Update local state by appending item
-      const newItemObj = {
-        id: newItem.id,
-        category: newItem.category,
-        name: newItem.name,
-        description: newItem.description,
-        price: priceNum,
-        display_order: menuItems.filter(i => i.category === newItem.category).length,
-        active: true
-      };
-
-      setMenuItems([...menuItems, newItemObj]);
-      setNewItem({ id: "", name: "", description: "", price: "", category: selectedCategory });
-      triggerMsg("Jelo uspješno dodano!");
     } catch (err: any) {
+      // Rollback
+      setMenuItems(previousMenuItems);
+      setNewItem(originalNewItemInput);
       triggerMsg(err.message || "Došlo je do pogreške pri dodavanju jela", "error");
     }
   };
@@ -134,66 +151,111 @@ export default function AdminDashboard({
   };
 
   const handleSaveEdit = async (id: string) => {
+    const previousMenuItems = [...menuItems];
+    const priceNum = parseFloat(editingItemData.price);
+    
+    if (isNaN(priceNum)) {
+      triggerMsg("Cijena mora biti broj", "error");
+      return;
+    }
+
+    const updatedItem = {
+      ...editingItemData,
+      price: priceNum
+    };
+
+    // Optimistic Update: Modify the state immediately
+    setMenuItems(menuItems.map(item => item.id === id ? { ...item, ...updatedItem } : item));
+    setEditingItemId(null);
+    triggerMsg("Jelo uspješno ažurirano!");
+
     try {
       await updateMenuItem(id, {
-        name: editingItemData.name,
-        description: editingItemData.description,
-        price: parseFloat(editingItemData.price)
+        name: updatedItem.name,
+        description: updatedItem.description,
+        price: priceNum
       });
-
-      setMenuItems(menuItems.map(item => item.id === id ? { ...item, ...editingItemData, price: parseFloat(editingItemData.price) } : item));
-      setEditingItemId(null);
-      triggerMsg("Jelo uspješno ažurirano!");
     } catch (err: any) {
+      // Rollback
+      setMenuItems(previousMenuItems);
       triggerMsg(err.message || "Pogreška pri spremanju", "error");
     }
   };
 
   const handleToggleActive = async (id: string, currentStatus: boolean) => {
+    const previousMenuItems = [...menuItems];
+    
+    // Optimistic Update: Toggle immediately
+    setMenuItems(menuItems.map(item => item.id === id ? { ...item, active: !currentStatus } : item));
+    triggerMsg(currentStatus ? "Jelo deaktivirano" : "Jelo aktivirano!");
+
     try {
       await updateMenuItem(id, { active: !currentStatus });
-      setMenuItems(menuItems.map(item => item.id === id ? { ...item, active: !currentStatus } : item));
-      triggerMsg(currentStatus ? "Jelo deaktivirano" : "Jelo aktivirano!");
     } catch (err: any) {
+      // Rollback
+      setMenuItems(previousMenuItems);
       triggerMsg(err.message || "Greška", "error");
     }
   };
 
   const handleDelete = async (id: string) => {
     if (!confirm("Jeste li sigurni da želite obrisati ovo jelo?")) return;
+    
+    const previousMenuItems = [...menuItems];
+
+    // Optimistic Update: Remove immediately
+    setMenuItems(menuItems.filter(item => item.id !== id));
+    triggerMsg("Jelo uspješno obrisano!");
+
     try {
       await deleteMenuItem(id);
-      setMenuItems(menuItems.filter(item => item.id !== id));
-      triggerMsg("Jelo uspješno obrisano!");
     } catch (err: any) {
+      // Rollback
+      setMenuItems(previousMenuItems);
       triggerMsg(err.message || "Greška pri brisanju", "error");
     }
   };
 
   const handleMove = async (id: string, direction: "up" | "down") => {
+    const previousMenuItems = [...menuItems];
+
+    const categoryItems = [...menuItems]
+      .filter(item => item.category === selectedCategory)
+      .sort((a, b) => a.display_order - b.display_order);
+    const idx = categoryItems.findIndex(i => i.id === id);
+    const targetIdx = direction === "up" ? idx - 1 : idx + 1;
+    
+    if (targetIdx < 0 || targetIdx >= categoryItems.length) return;
+
+    const itemA = categoryItems[idx];
+    const itemB = categoryItems[targetIdx];
+    
+    // Swap display orders locally
+    const orderA = itemA.display_order;
+    const orderB = itemB.display_order;
+
+    // Optimistic Update: Swap display_order in local state
+    const nextItems = menuItems.map(item => {
+      if (item.id === itemA.id) {
+        return { ...item, display_order: orderB };
+      }
+      if (item.id === itemB.id) {
+        return { ...item, display_order: orderA };
+      }
+      return item;
+    }).sort((a, b) => a.display_order - b.display_order);
+
+    setMenuItems(nextItems);
+    triggerMsg("Redoslijed uspješno promijenjen!");
+
     try {
       const res = await reorderMenuItem(id, direction);
-      if (res.success) {
-        // Simple client-side reorder sorting simulation or just reload page
-        // Reloading state: get list of items in same category, swap display_order
-        const categoryItems = menuItems.filter(item => item.category === selectedCategory).sort((a, b) => a.display_order - b.display_order);
-        const idx = categoryItems.findIndex(i => i.id === id);
-        const targetIdx = direction === "up" ? idx - 1 : idx + 1;
-        
-        if (targetIdx >= 0 && targetIdx < categoryItems.length) {
-          const itemA = categoryItems[idx];
-          const itemB = categoryItems[targetIdx];
-          
-          // Swap display orders locally
-          const orderA = itemA.display_order;
-          itemA.display_order = itemB.display_order;
-          itemB.display_order = orderA;
-          
-          setMenuItems([...menuItems].sort((a, b) => a.display_order - b.display_order));
-          triggerMsg("Redoslijed uspješno promijenjen!");
-        }
+      if (!res.success) {
+        throw new Error("Failed to swap order");
       }
     } catch (err: any) {
+      // Rollback
+      setMenuItems(previousMenuItems);
       triggerMsg(err.message || "Došlo je do greške", "error");
     }
   };
@@ -328,6 +390,18 @@ export default function AdminDashboard({
           >
             <BarChart3 className="h-4.5 w-4.5" />
             <span className="hidden md:inline">Analitika Posjeta</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab("settings")}
+            className={`w-full flex items-center justify-center md:justify-start space-x-3 px-4 py-3.5 rounded-xl text-xs uppercase tracking-wider font-semibold transition-all duration-300 cursor-pointer ${
+              activeTab === "settings" 
+                ? "bg-[#C1682B] text-white shadow-soft" 
+                : "text-ivory-300 hover:bg-[#26201B] hover:text-white"
+            }`}
+          >
+            <SettingsIcon className="h-4.5 w-4.5" />
+            <span className="hidden md:inline">Godišnji Odmor</span>
           </button>
 
         </aside>
@@ -805,6 +879,82 @@ export default function AdminDashboard({
                 </div>
               </div>
 
+            </div>
+          )}
+
+          {/* ======================================================== */}
+          {/* TAB 5: VACATION AND SETTINGS MANAGER */}
+          {/* ======================================================== */}
+          {activeTab === "settings" && (
+            <div className="bg-[#26201B] border border-chocolate-850/35 rounded-2xl p-6 sm:p-8 space-y-6 shadow-soft animate-fade-in">
+              <div className="border-b border-chocolate-850/40 pb-4">
+                <h2 className="font-serif text-xl font-bold text-white uppercase tracking-wider">Upravljanje Godišnjim Odmorom</h2>
+                <p className="text-xs text-ivory-300 mt-1">Postavite razdoblje godišnjeg odmora. Bistro Top će automatski prikazati obavijest posjetiteljima tijekom ovog perioda.</p>
+              </div>
+
+              <div className="max-w-md space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-1.5">
+                    <label className="text-[10px] text-ivory-300 uppercase font-semibold">Godišnji od</label>
+                    <input
+                      type="date"
+                      value={vacationStart}
+                      onChange={(e) => setVacationStart(e.target.value)}
+                      className="w-full bg-[#1A1512] border border-[#E6D5C3]/10 focus:border-[#C1682B] rounded-xl px-3.5 py-2.5 text-xs outline-none text-ivory-100"
+                    />
+                  </div>
+                  <div className="space-y-1.5">
+                    <label className="text-[10px] text-ivory-300 uppercase font-semibold">Godišnji do</label>
+                    <input
+                      type="date"
+                      value={vacationEnd}
+                      onChange={(e) => setVacationEnd(e.target.value)}
+                      className="w-full bg-[#1A1512] border border-[#E6D5C3]/10 focus:border-[#C1682B] rounded-xl px-3.5 py-2.5 text-xs outline-none text-ivory-100"
+                    />
+                  </div>
+                </div>
+
+                <div className="flex space-x-3 pt-2">
+                  <button
+                    onClick={async () => {
+                      try {
+                        const startVal = vacationStart || null;
+                        const endVal = vacationEnd || null;
+                        const res = await updateVacationSettings(startVal, endVal);
+                        if (res.success) {
+                          triggerMsg("Postavke godišnjeg odmora su uspješno spremljene!");
+                        }
+                      } catch (err: any) {
+                        triggerMsg(err.message || "Greška pri spremanju postavki", "error");
+                      }
+                    }}
+                    className="bg-[#C1682B] hover:bg-[#A9551E] text-white text-xs uppercase tracking-wider font-semibold py-3 px-6 rounded-xl flex items-center justify-center space-x-2 transition duration-300 shadow-soft cursor-pointer"
+                  >
+                    <Save className="h-4 w-4" />
+                    <span>Spremi</span>
+                  </button>
+
+                  {(vacationStart || vacationEnd) && (
+                    <button
+                      onClick={async () => {
+                        try {
+                          const res = await updateVacationSettings(null, null);
+                          if (res.success) {
+                            setVacationStart("");
+                            setVacationEnd("");
+                            triggerMsg("Godišnji odmor uspješno uklonjen!");
+                          }
+                        } catch (err: any) {
+                          triggerMsg(err.message || "Greška pri uklanjanju", "error");
+                        }
+                      }}
+                      className="bg-red-500/10 border border-red-500/20 text-red-300 hover:bg-red-500/20 hover:text-red-200 text-xs uppercase tracking-wider font-semibold py-3 px-5 rounded-xl transition duration-300 cursor-pointer"
+                    >
+                      Ukloni
+                    </button>
+                  )}
+                </div>
+              </div>
             </div>
           )}
 

@@ -56,6 +56,7 @@ export default async function RootLayout({
             initialSiteContent={bistroData.site_content}
             initialMenuItems={bistroData.menu_items}
             initialOpeningHours={bistroData.opening_hours}
+            initialSettings={bistroData.site_settings}
           >
             {children}
           </LanguageProvider>

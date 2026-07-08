@@ -22,6 +22,24 @@ export default async function AdminPage() {
     .from("site_content")
     .select("*");
 
+  // 3b. Fetch site_settings (resilient to missing table)
+  let vacationStart = null;
+  let vacationEnd = null;
+  try {
+    const { data: settings } = await supabaseAdmin
+      .from("site_settings")
+      .select("vacation_start, vacation_end")
+      .eq("id", 1)
+      .maybeSingle();
+      
+    if (settings) {
+      vacationStart = settings.vacation_start;
+      vacationEnd = settings.vacation_end;
+    }
+  } catch (err) {
+    console.warn("[AdminPage] Could not fetch site_settings table:", err);
+  }
+
   // 4. Fetch page views from last 30 days
   const thirtyDaysAgo = new Date();
   thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
@@ -82,6 +100,8 @@ export default async function AdminPage() {
       initialMenuItems={menuItems || []}
       initialHours={hours || []}
       initialSiteContent={siteContent || []}
+      initialVacationStart={vacationStart}
+      initialVacationEnd={vacationEnd}
       analytics={{
         totalViews,
         viewsByDay,

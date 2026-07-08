@@ -145,6 +145,20 @@ async function seed() {
   }
   console.log(`Successfully seeded ${FALLBACK_OPENING_HOURS.length} opening hours records.`);
 
+  // --- D. Seed site_settings ---
+  console.log("Seeding site_settings...");
+  const { error: deleteSettingsError } = await supabase.from("site_settings").delete().neq("id", 0);
+  if (deleteSettingsError) {
+    console.error("Error clearing site_settings:", deleteSettingsError);
+  }
+
+  const { error: insertSettingsError } = await supabase.from("site_settings").insert({ id: 1, vacation_start: null, vacation_end: null });
+  if (insertSettingsError) {
+    console.error("Error inserting site_settings:", insertSettingsError);
+    process.exit(1);
+  }
+  console.log("Successfully seeded site_settings with default null values.");
+
   console.log("Seeding completed successfully!");
 }
 

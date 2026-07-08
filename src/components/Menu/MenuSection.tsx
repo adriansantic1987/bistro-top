@@ -19,6 +19,13 @@ const CATEGORY_BANNERS: Record<string, string> = {
 export default function MenuSection() {
   const { dict, menuItems: fallbackItems } = useLanguage();
   const [activeCategory, setActiveCategory] = useState<string>("pizze");
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  useEffect(() => {
+    setIsAnimating(true);
+    const timer = setTimeout(() => setIsAnimating(false), 150);
+    return () => clearTimeout(timer);
+  }, [activeCategory]);
 
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -116,7 +123,9 @@ export default function MenuSection() {
         </div>
 
         {/* Text-Based Menu Rows split into two columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2">
+        <div className={`grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2 transition-all duration-300 ease-out transform ${
+          isAnimating ? "opacity-0 translate-y-3" : "opacity-100 translate-y-0"
+        }`}>
           <AnimatePresence mode="popLayout">
             {filteredItems.map((item) => (
               <MenuItem key={item.id} item={item} />

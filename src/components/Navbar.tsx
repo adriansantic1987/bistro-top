@@ -50,7 +50,7 @@ export default function Navbar() {
                 }`}
               />
               <span
-                className={`font-serif text-xl sm:text-2xl font-bold tracking-wide transition-colors duration-300 ${
+                className={`font-serif text-xl sm:text-2xl font-bold tracking-wide transition-all duration-300 ease-in-out ${
                   isScrolled ? "text-chocolate-900 dark:text-ivory-100" : "text-white"
                 }`}
               >
@@ -65,7 +65,7 @@ export default function Navbar() {
                   <a
                     key={link.name}
                     href={link.href}
-                    className={`font-sans text-sm font-semibold tracking-wide transition-colors duration-200 ${
+                    className={`font-sans text-sm font-semibold tracking-wide transition-all duration-300 ease-in-out ${
                       isScrolled
                         ? "text-chocolate-850 dark:text-ivory-200 hover:text-sea-600 dark:hover:text-sea-200"
                         : "text-ivory-100 hover:text-white"
@@ -79,7 +79,7 @@ export default function Navbar() {
               {/* Theme Toggle Button */}
               <button
                 onClick={toggleTheme}
-                className={`p-2 rounded-xl transition-all duration-200 cursor-pointer ${
+                className={`p-2 rounded-xl transition-all duration-300 ease-in-out cursor-pointer ${
                   isScrolled
                     ? "text-chocolate-850 dark:text-ivory-200 hover:text-sea-600 dark:hover:text-sea-200 hover:bg-chocolate-100/40 dark:hover:bg-chocolate-850/50"
                     : "text-ivory-100 hover:text-white hover:bg-white/10"
@@ -99,7 +99,7 @@ export default function Navbar() {
                   type="button"
                   onClick={() => setDropdownOpen(!dropdownOpen)}
                   onBlur={() => setTimeout(() => setDropdownOpen(false), 200)}
-                  className={`flex items-center space-x-1 font-sans text-xs tracking-wider uppercase font-bold cursor-pointer focus:outline-none transition-colors duration-200 ${
+                  className={`flex items-center space-x-1 font-sans text-xs tracking-wider uppercase font-bold cursor-pointer focus:outline-none transition-all duration-300 ease-in-out ${
                     isScrolled
                       ? "text-chocolate-900 dark:text-ivory-100 hover:text-sea-600 dark:hover:text-sea-200"
                       : "text-white hover:text-sea-250"
@@ -125,7 +125,7 @@ export default function Navbar() {
                             setLanguage(lang);
                             setDropdownOpen(false);
                           }}
-                          className={`w-full py-1.5 text-xs font-sans font-bold uppercase transition-colors duration-200 cursor-pointer ${
+                          className={`w-full py-1.5 text-xs font-sans font-bold uppercase transition-all duration-300 ease-in-out cursor-pointer ${
                             language === lang
                               ? "text-sea-600 dark:text-sea-200 bg-ivory-50 dark:bg-chocolate-900/50"
                               : "text-chocolate-850 dark:text-ivory-200 hover:text-chocolate-900 dark:hover:text-white hover:bg-ivory-50/50 dark:hover:bg-chocolate-850/50"
@@ -144,7 +144,7 @@ export default function Navbar() {
             <div className="md:hidden flex items-center space-x-1.5">
               <button
                 onClick={toggleTheme}
-                className={`p-2 rounded-xl transition-all duration-200 cursor-pointer ${
+                className={`p-2 rounded-xl transition-all duration-300 ease-in-out cursor-pointer ${
                   isScrolled
                     ? "text-chocolate-850 dark:text-ivory-200 hover:text-sea-600 dark:hover:text-sea-200 hover:bg-chocolate-100/40 dark:hover:bg-chocolate-850/50"
                     : "text-ivory-100 hover:text-white hover:bg-white/10"
@@ -160,7 +160,7 @@ export default function Navbar() {
 
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`p-2 focus:outline-none transition-colors duration-300 ${
+                className={`p-2 focus:outline-none transition-all duration-300 ease-in-out ${
                   isScrolled ? "text-chocolate-900 dark:text-ivory-100 hover:text-sea-600 dark:hover:text-sea-200" : "text-white hover:text-sea-200"
                 }`}
                 aria-label="Toggle menu"

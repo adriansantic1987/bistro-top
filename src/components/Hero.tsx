@@ -82,14 +82,14 @@ export default function Hero() {
         >
           <a
             href="#menu"
-            className="group flex items-center justify-center space-x-2 bg-[#C1682B] hover:bg-[#A9551E] text-white font-semibold px-8 py-4 rounded-full text-base transition-all duration-300 hover:shadow-active cursor-pointer"
+            className="group flex items-center justify-center space-x-2 bg-[#C1682B] hover:bg-[#A9551E] text-white font-semibold px-8 py-4 rounded-full text-base transition-all duration-300 ease-in-out hover:shadow-active cursor-pointer"
           >
             <span>{dict.hero.ctaMenu}</span>
             <ArrowRight className="h-4 w-4 text-white transition-transform duration-300 group-hover:translate-x-1" />
           </a>
           <a
             href="#contact"
-            className="flex items-center justify-center bg-[#C1682B]/10 hover:bg-[#C1682B]/20 border border-[#C1682B] text-[#DFB283] hover:text-white font-semibold px-8 py-4 rounded-full text-base transition-all duration-300 cursor-pointer"
+            className="flex items-center justify-center bg-[#C1682B]/10 hover:bg-[#C1682B]/20 border border-[#C1682B] text-[#DFB283] hover:text-white font-semibold px-8 py-4 rounded-full text-base transition-all duration-300 ease-in-out cursor-pointer"
           >
             {dict.hero.ctaBook}
           </a>

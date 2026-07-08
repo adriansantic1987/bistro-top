@@ -114,7 +114,7 @@ export default function VacationModal() {
           {/* Dismiss button */}
           <button
             onClick={handleDismiss}
-            className="absolute top-4 right-4 p-1.5 rounded-full text-ivory-300 hover:text-white hover:bg-white/5 transition cursor-pointer"
+            className="absolute top-4 right-4 p-1.5 rounded-full text-ivory-300 hover:text-white hover:bg-white/5 transition-all duration-300 ease-in-out cursor-pointer"
             aria-label="Dismiss"
           >
             <X className="h-4.5 w-4.5" />
@@ -136,7 +136,7 @@ export default function VacationModal() {
           {/* Dismiss action */}
           <button
             onClick={handleDismiss}
-            className="w-full bg-[#DFB283] hover:bg-white text-chocolate-900 text-xs sm:text-sm uppercase tracking-widest font-semibold py-3 px-4 rounded-xl transition duration-300 shadow-soft cursor-pointer"
+            className="w-full bg-[#DFB283] hover:bg-white text-chocolate-900 text-xs sm:text-sm uppercase tracking-widest font-semibold py-3 px-4 rounded-xl transition-all duration-300 ease-in-out shadow-soft cursor-pointer"
           >
             {msg.close}
           </button>

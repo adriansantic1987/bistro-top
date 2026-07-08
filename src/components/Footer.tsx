@@ -2,7 +2,7 @@
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Utensils, Instagram, Facebook, Twitter, Phone, MapPin, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
@@ -47,8 +47,17 @@ export default function Footer() {
   const [userName, setUserName] = useState("");
   const [guestCount, setGuestCount] = useState("");
   const [bookingDate, setBookingDate] = useState("");
-  const [bookingTime, setBookingTime] = useState("");
+  const [selectedHour, setSelectedHour] = useState("19");
+  const [selectedMinute, setSelectedMinute] = useState("00");
+  const [minDate, setMinDate] = useState("");
 
+  useEffect(() => {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    setMinDate(`${yyyy}-${mm}-${dd}`);
+  }, []);
 
   const socialLinks = [
     { icon: <Instagram className="h-5 w-5" />, href: "https://instagram.com", name: "Instagram" },
@@ -65,6 +74,7 @@ export default function Footer() {
 
   const handleWhatsAppBooking = () => {
     // Compile dynamic WhatsApp pre-filled template replacing tags
+    const bookingTime = `${selectedHour}:${selectedMinute}`;
     const template = dict.action_box.whatsapp_template;
     const text = template
       .replace("{name}", userName)
@@ -179,28 +189,29 @@ export default function Footer() {
 
           </motion.div>
 
-           {/* Right Column: Quiet Luxury Action Box (With spacing refinements) */}
-          <motion.div
-            id="footer-booking"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="lg:col-span-7 bg-white dark:bg-[#26201B] border border-ivory-200 dark:border-chocolate-850/50 rounded-3xl px-8 pt-8 pb-8 shadow-soft dark:shadow-none flex flex-col justify-between space-y-8 text-center animate-fade-in"
-          >
-            {/* Upper Section - Exclusive to Reservations (Tightly Grouped at the Top) */}
-            <div className="space-y-4 flex flex-col justify-start w-full">
+            {/* Right Column: Split Cards Layout */}
+          <div className="lg:col-span-7 flex flex-col space-y-6 justify-between items-stretch">
+            
+            {/* Card 1: WhatsApp Reservations Form */}
+            <motion.div
+              id="footer-booking-reservation"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-white dark:bg-[#26201B] border border-ivory-200 dark:border-chocolate-850/50 rounded-3xl p-6 sm:p-8 shadow-soft dark:shadow-none transition-all duration-300 hover:shadow-premium dark:hover:shadow-[0_15px_30px_rgba(0,0,0,0.4)] hover:-translate-y-0.5 flex flex-col space-y-6 text-center animate-fade-in"
+            >
               <div className="space-y-2">
-                <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-chocolate-900 dark:text-ivory-50 uppercase tracking-wide">
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-chocolate-900 dark:text-ivory-50 uppercase tracking-wide">
                   {dict.action_box.reserve_title}
                 </h3>
                 <p className="text-chocolate-850 dark:text-ivory-200 font-sans font-light text-xs sm:text-sm leading-relaxed max-w-md mx-auto">
                   {dict.action_box.reserve_subtitle}
                 </p>
               </div>
-              
+
               {/* Grouped Input Fields with Micro-Labels */}
-              <div className="space-y-6 w-full pt-1 text-left">
+              <div className="space-y-6 w-full text-left">
                 
                 {/* Group 1: Tko dolazi? */}
                 <div className="space-y-2.5">
@@ -213,14 +224,14 @@ export default function Footer() {
                       value={userName}
                       onChange={(e) => setUserName(e.target.value)}
                       placeholder={dict.action_box.name_placeholder}
-                      className="w-full bg-transparent border-b border-[#E6D5C3] dark:border-chocolate-800 focus:border-chocolate-900 dark:focus:border-ivory-100 outline-none pb-2 text-chocolate-900 dark:text-ivory-100 font-sans text-xs transition-colors duration-200 placeholder:text-chocolate-200/50 dark:placeholder:text-ivory-300/35 rounded-none px-1"
+                      className="w-full bg-transparent border-b border-stone-300 dark:border-chocolate-800 focus:border-stone-800 dark:focus:border-ivory-100 focus:outline-none pb-2 text-stone-900 dark:text-ivory-100 font-sans text-xs transition-colors duration-200 placeholder:text-stone-400 dark:placeholder:text-ivory-300/35 rounded-none px-1 py-1"
                     />
                     <input
                       type="text"
                       value={guestCount}
                       onChange={(e) => setGuestCount(e.target.value)}
                       placeholder={dict.action_box.guests_placeholder}
-                      className="w-full bg-transparent border-b border-[#E6D5C3] dark:border-chocolate-800 focus:border-chocolate-900 dark:focus:border-ivory-100 outline-none pb-2 text-chocolate-900 dark:text-ivory-100 font-sans text-xs transition-colors duration-200 placeholder:text-chocolate-200/50 dark:placeholder:text-ivory-300/35 rounded-none px-1"
+                      className="w-full bg-transparent border-b border-stone-300 dark:border-chocolate-800 focus:border-stone-800 dark:focus:border-ivory-100 focus:outline-none pb-2 text-stone-900 dark:text-ivory-100 font-sans text-xs transition-colors duration-200 placeholder:text-stone-400 dark:placeholder:text-ivory-300/35 rounded-none px-1 py-1"
                     />
                   </div>
                 </div>
@@ -236,23 +247,42 @@ export default function Footer() {
                       value={bookingDate}
                       onChange={(e) => setBookingDate(e.target.value)}
                       placeholder={dict.action_box.date_placeholder}
-                      onFocus={(e) => (e.currentTarget.type = "date")}
+                      onFocus={(e) => {
+                        e.currentTarget.type = "date";
+                      }}
                       onBlur={(e) => {
                         if (!e.currentTarget.value) e.currentTarget.type = "text";
                       }}
-                      className="w-full bg-transparent border-b border-[#E6D5C3] dark:border-chocolate-800 focus:border-chocolate-900 dark:focus:border-ivory-100 outline-none pb-2 text-chocolate-900 dark:text-ivory-100 font-sans text-xs transition-colors duration-200 placeholder:text-chocolate-200/50 dark:placeholder:text-ivory-300/35 rounded-none px-1"
+                      min={minDate}
+                      className="w-full bg-transparent border-b border-stone-300 dark:border-chocolate-800 focus:border-stone-800 dark:focus:border-ivory-100 focus:outline-none pb-2 text-stone-900 dark:text-ivory-100 font-sans text-xs transition-colors duration-200 placeholder:text-stone-400 dark:placeholder:text-ivory-300/35 rounded-none px-1 py-1"
                     />
-                    <input
-                      type="text"
-                      value={bookingTime}
-                      onChange={(e) => setBookingTime(e.target.value)}
-                      placeholder={dict.action_box.time_placeholder}
-                      onFocus={(e) => (e.currentTarget.type = "time")}
-                      onBlur={(e) => {
-                        if (!e.currentTarget.value) e.currentTarget.type = "text";
-                      }}
-                      className="w-full bg-transparent border-b border-[#E6D5C3] dark:border-chocolate-800 focus:border-chocolate-900 dark:focus:border-ivory-100 outline-none pb-2 text-chocolate-900 dark:text-ivory-100 font-sans text-xs transition-colors duration-200 placeholder:text-chocolate-200/50 dark:placeholder:text-ivory-300/35 rounded-none px-1"
-                    />
+                    <div className="grid grid-cols-2 gap-x-4">
+                      <select
+                        value={selectedHour}
+                        onChange={(e) => setSelectedHour(e.target.value)}
+                        className="w-full bg-transparent border-b border-stone-300 dark:border-chocolate-800 focus:border-stone-800 dark:focus:border-ivory-100 focus:outline-none pb-2 text-stone-900 dark:text-ivory-100 font-sans text-xs transition-all duration-300 ease-in-out rounded-none px-1 py-1 cursor-pointer appearance-none"
+                      >
+                        {Array.from({ length: 15 }, (_, i) => {
+                          const hrVal = String(i + 9).padStart(2, "0");
+                          return (
+                            <option key={hrVal} value={hrVal} className="bg-white dark:bg-[#1A1512] text-stone-900 dark:text-ivory-100">
+                              {hrVal}:--
+                            </option>
+                          );
+                        })}
+                      </select>
+                      <select
+                        value={selectedMinute}
+                        onChange={(e) => setSelectedMinute(e.target.value)}
+                        className="w-full bg-transparent border-b border-stone-300 dark:border-chocolate-800 focus:border-stone-800 dark:focus:border-ivory-100 focus:outline-none pb-2 text-stone-900 dark:text-ivory-100 font-sans text-xs transition-all duration-300 ease-in-out rounded-none px-1 py-1 cursor-pointer appearance-none"
+                      >
+                        {["00", "15", "30", "45"].map((minVal) => (
+                          <option key={minVal} value={minVal} className="bg-white dark:bg-[#1A1512] text-stone-900 dark:text-ivory-100">
+                            --:{minVal}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
                   </div>
                 </div>
 
@@ -268,18 +298,25 @@ export default function Footer() {
                 </svg>
                 <span>{dict.action_box.reserve_btn}</span>
               </button>
-            </div>
- 
-            {/* Informational Tip box */}
-            <div className="bg-ivory-100/50 dark:bg-[#1A1512]/50 p-4 rounded-xl border border-ivory-200 dark:border-chocolate-850/50 mt-6 flex items-start space-x-3 text-left">
-              <Phone className="h-5 w-5 text-sea-600 dark:text-sea-250 flex-shrink-0 mt-0.5" />
-              <p className="text-xs text-chocolate-800 dark:text-ivory-300 font-sans font-light leading-relaxed">
-                <strong className="font-semibold text-chocolate-900 dark:text-ivory-100">{whatsappNoteTitle[language] || "Napomena za WhatsApp:"}</strong> {whatsappNote[language]}
-              </p>
-            </div>
 
-            {/* Lower Section - Exclusive to Phone Orders & Delivery (Anchored & nudged further upward) */}
-            <div className="space-y-4 w-full -translate-y-2 mb-2 pb-2">
+              {/* Informational Tip box */}
+              <div className="bg-ivory-100/50 dark:bg-[#1A1512]/50 p-4 rounded-xl border border-ivory-200 dark:border-chocolate-850/50 flex items-start space-x-3 text-left">
+                <Phone className="h-5 w-5 text-sea-600 dark:text-sea-250 flex-shrink-0 mt-0.5" />
+                <p className="text-xs text-chocolate-800 dark:text-ivory-300 font-sans font-light leading-relaxed">
+                  <strong className="font-semibold text-chocolate-900 dark:text-ivory-100">{whatsappNoteTitle[language] || "Napomena za WhatsApp:"}</strong> {whatsappNote[language]}
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Card 2: Phone Orders & Delivery */}
+            <motion.div
+              id="footer-booking-delivery"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-white dark:bg-[#26201B] border border-ivory-200 dark:border-chocolate-850/50 rounded-3xl p-6 sm:p-8 shadow-soft dark:shadow-none transition-all duration-300 hover:shadow-premium dark:hover:shadow-[0_15px_30px_rgba(0,0,0,0.4)] hover:-translate-y-0.5 flex flex-col space-y-4 text-center animate-fade-in"
+            >
               <h3 className="font-serif text-xl sm:text-2xl font-bold text-chocolate-900 dark:text-ivory-50 uppercase tracking-wide">
                 {dict.action_box.order_title}
               </h3>
@@ -296,8 +333,9 @@ export default function Footer() {
                 <Phone className="h-4.5 w-4.5 flex-shrink-0" />
                 <span>{dict.action_box.contact_btn}</span>
               </a>
-            </div>
-          </motion.div>
+            </motion.div>
+
+          </div>
 
         </div>
 

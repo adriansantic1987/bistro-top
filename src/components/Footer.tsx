@@ -63,54 +63,18 @@ export default function Footer() {
     { name: dict.navbar.contact, href: "#contact" },
   ];
 
-  const [isBooking, setIsBooking] = useState(false);
-
-  const handleWhatsAppBooking = async () => {
-    if (isBooking) return;
-    setIsBooking(true);
-    let reservationId = "";
-
-    try {
-      if (userName && guestCount && bookingDate && bookingTime) {
-        const res = await fetch("/api/reservations", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: userName,
-            guests: guestCount,
-            date: bookingDate,
-            time: bookingTime
-          })
-        });
-        if (res.ok) {
-          const data = await res.json();
-          reservationId = data.id;
-        }
-      }
-    } catch (err) {
-      console.warn("[Footer Booking] Failed to save reservation to Supabase, falling back to direct link:", err);
-    }
-
+  const handleWhatsAppBooking = () => {
     // Compile dynamic WhatsApp pre-filled template replacing tags
     const template = dict.action_box.whatsapp_template;
-    let text = template
+    const text = template
       .replace("{name}", userName)
       .replace("{guests}", guestCount)
       .replace("{date}", bookingDate)
       .replace("{time}", bookingTime);
 
-    if (reservationId) {
-      const baseUrl = window.location.origin;
-      const confirmUrl = `${baseUrl}/api/reservations/confirm?id=${reservationId}&status=approved&lang=${language}`;
-      const rejectUrl = `${baseUrl}/api/reservations/confirm?id=${reservationId}&status=rejected&lang=${language}`;
-      
-      text += `\n\n--- ODOBRENJE REZERVACIJE ---\n🟢 ODOBRI STOL: ${confirmUrl}\n❌ ODBIJ / PUNO: ${rejectUrl}`;
-    }
-
     const encodedText = encodeURIComponent(text);
     const link = `https://wa.me/385994111894?text=${encodedText}`;
     window.open(link, "_blank");
-    setIsBooking(false);
   };
 
   return (
@@ -297,28 +261,12 @@ export default function Footer() {
               {/* Quiet Luxury WhatsApp Booking Button */}
               <button
                 onClick={handleWhatsAppBooking}
-                disabled={isBooking}
-                className="w-full bg-chocolate-900 dark:bg-[#C1682B] hover:bg-chocolate-850 dark:hover:bg-[#A9551E] active:scale-[0.99] text-white font-sans font-semibold py-3.5 px-6 rounded-xl flex items-center justify-center space-x-2 shadow-soft hover:shadow-active transition-all duration-300 cursor-pointer text-xs sm:text-sm border border-transparent uppercase tracking-wider disabled:opacity-50 disabled:pointer-events-none"
+                className="w-full bg-chocolate-900 dark:bg-[#C1682B] hover:bg-chocolate-850 dark:hover:bg-[#A9551E] active:scale-[0.99] text-white font-sans font-semibold py-3.5 px-6 rounded-xl flex items-center justify-center space-x-2 shadow-soft hover:shadow-active transition-all duration-300 cursor-pointer text-xs sm:text-sm border border-transparent uppercase tracking-wider"
               >
-                {isBooking ? (
-                  <span>
-                    {
-                      {
-                        hr: "Slanje...",
-                        en: "Sending...",
-                        de: "Senden...",
-                        it: "Invio..."
-                      }[language] || "Sending..."
-                    }
-                  </span>
-                ) : (
-                  <>
-                    <svg className="h-4 w-4 fill-white flex-shrink-0" viewBox="0 0 24 24">
-                      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.504-5.727-1.465L0 24zm6.59-4.846c1.665.988 3.311 1.488 4.96.16 6.305-.28 11.442-5.41 11.446-11.725.002-3.003-1.168-5.83-3.292-7.957C17.639 2.505 14.808 1.332 11.8 1.333c-5.918 0-10.732 4.81-10.736 10.735-.001 1.914.502 3.784 1.457 5.438L1.47 21.65l4.316-1.579c1.6.877 3.4 1.332 5.093 1.332h.004-.002zm12.336-8.918c-.328-.164-1.94-.959-2.241-1.07-.3-.11-.518-.165-.738.165-.219.329-.85 1.07-.1.042-.15.19-.328.329-.657.165-.328 0-.656-.164-.329-.164-.33-.163-.656.329-1.637.33-.984.001-1.64.001-.82-.656-.328-.656-.328-1.748-1.07-2.32-.657-.573-1.256-.466-1.72-.055-.466-.411-.902-.821-1.229-.821-.328 0-.656-.164-.82.164-.164.329-.656 1.638-.656 1.638s.163.33.328.657c.164.328.492.656.82.82.328.164 1.15.82 2.3.985.49.07 1.05.08 1.54.04 1.31-.09 2.45-.66 2.87-1.39.42-.73.42-1.37.28-1.54-.14-.17-.518-.329-.848-.493z" />
-                    </svg>
-                    <span>{dict.action_box.reserve_btn}</span>
-                  </>
-                )}
+                <svg className="h-4 w-4 fill-white flex-shrink-0" viewBox="0 0 24 24">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.504-5.727-1.465L0 24zm6.59-4.846c1.665.988 3.311 1.488 4.96.16 6.305-.28 11.442-5.41 11.446-11.725.002-3.003-1.168-5.83-3.292-7.957C17.639 2.505 14.808 1.332 11.8 1.333c-5.918 0-10.732 4.81-10.736 10.735-.001 1.914.502 3.784 1.457 5.438L1.47 21.65l4.316-1.579c1.6.877 3.4 1.332 5.093 1.332h.004-.002zm12.336-8.918c-.328-.164-1.94-.959-2.241-1.07-.3-.11-.518-.165-.738.165-.219.329-.85 1.07-.1.042-.15.19-.328.329-.657.165-.328 0-.656-.164-.329-.164-.33-.163-.656.329-1.637.33-.984.001-1.64.001-.82-.656-.328-.656-.328-1.748-1.07-2.32-.657-.573-1.256-.466-1.72-.055-.466-.411-.902-.821-1.229-.821-.328 0-.656-.164-.82.164-.164.329-.656 1.638-.656 1.638s.163.33.328.657c.164.328.492.656.82.82.328.164 1.15.82 2.3.985.49.07 1.05.08 1.54.04 1.31-.09 2.45-.66 2.87-1.39.42-.73.42-1.37.28-1.54-.14-.17-.518-.329-.848-.493z" />
+                </svg>
+                <span>{dict.action_box.reserve_btn}</span>
               </button>
             </div>
  
